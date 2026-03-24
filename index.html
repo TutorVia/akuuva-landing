@@ -1,0 +1,684 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Akuuva</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Geist+Mono:wght@300;400;500&family=Geist:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+
+:root{
+  --ink:#0C0C0B;
+  --ink2:#1A1A18;
+  --paper:#F2EFE8;
+  --paper2:#E8E4DB;
+  --paper3:#DEDAD0;
+  --gold:#A8926A;
+  --gold-lt:#C4AA80;
+  --mist:#8A877E;
+  --mist2:#6A6760;
+  --border:rgba(12,12,11,0.09);
+  --border2:rgba(12,12,11,0.16);
+  --clean:#3A6B4A;
+  --clean-lt:#5A9A6A;
+  --f-d:'Cormorant Garamond',Georgia,serif;
+  --f-s:'Geist',system-ui,sans-serif;
+  --f-m:'Geist Mono',monospace;
+}
+
+html{scroll-behavior:smooth}
+body{
+  font-family:var(--f-s);
+  background:var(--paper);
+  color:var(--ink);
+  -webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
+  cursor:none;
+}
+
+/* ── CURSOR ── */
+#cur{
+  position:fixed;width:7px;height:7px;
+  background:var(--ink);border-radius:50%;
+  pointer-events:none;z-index:9999;
+  transform:translate(-50%,-50%);
+  transition:width .2s,height .2s,background .2s;
+  mix-blend-mode:multiply;
+}
+#cur.h{width:34px;height:34px;background:var(--gold)}
+
+/* ── NAV ── */
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:100;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:0 56px;height:68px;
+  background:rgba(242,239,232,0.93);
+  backdrop-filter:blur(18px);
+  border-bottom:1px solid var(--border);
+}
+.nav-l{display:flex;align-items:center;gap:12px}
+
+/* Real logo image — black mark on light background */
+.nav-logo{
+  height:30px;width:auto;
+  display:block;
+}
+
+.nav-word{
+  font-family:var(--f-s);font-size:12px;font-weight:500;
+  letter-spacing:0.24em;text-transform:uppercase;color:var(--ink);
+}
+.nav-r{display:flex;align-items:center;gap:40px}
+.nav-link{
+  font-size:12px;font-weight:400;color:var(--mist);
+  text-decoration:none;letter-spacing:0.02em;transition:color .2s;
+}
+.nav-link:hover{color:var(--ink)}
+.nav-cta{
+  font-size:12px;font-weight:500;letter-spacing:0.04em;
+  color:var(--paper);background:var(--ink);
+  padding:9px 22px;border-radius:2px;text-decoration:none;
+  transition:background .2s;
+}
+.nav-cta:hover{background:var(--ink2)}
+
+/* ── HERO ── */
+.hero{
+  min-height:100vh;
+  display:grid;grid-template-columns:1fr 1fr;
+  position:relative;overflow:hidden;
+}
+.hero-l{
+  display:flex;flex-direction:column;justify-content:flex-end;
+  padding:148px 56px 88px;
+  border-right:1px solid var(--border2);
+  position:relative;z-index:1;
+}
+.hero-r{
+  display:flex;flex-direction:column;
+  justify-content:center;align-items:center;
+  padding:148px 56px 88px;
+  background:var(--paper2);
+  position:relative;
+}
+
+/* Horizontal rule lines — survey paper feel */
+.survey-lines{
+  position:absolute;inset:0;
+  background-image:repeating-linear-gradient(
+    0deg,transparent,transparent 47px,
+    rgba(12,12,11,0.045) 48px
+  );
+  pointer-events:none;
+}
+
+.eyebrow{
+  display:inline-flex;align-items:center;gap:12px;
+  margin-bottom:40px;
+}
+.eyebrow-rule{width:28px;height:1px;background:var(--gold);flex-shrink:0}
+.eyebrow-text{
+  font-family:var(--f-m);font-size:9px;font-weight:400;
+  letter-spacing:0.2em;text-transform:uppercase;color:var(--gold);
+}
+
+.hero-h1{
+  font-family:var(--f-d);
+  font-size:clamp(54px,6.8vw,100px);
+  font-weight:300;line-height:0.94;
+  letter-spacing:-0.025em;
+  color:var(--ink);margin-bottom:44px;
+}
+.hero-h1 em{
+  font-style:italic;color:var(--gold);
+  display:block;
+}
+
+.hero-sub{
+  font-size:14px;font-weight:300;
+  color:var(--mist);line-height:1.85;
+  max-width:370px;margin-bottom:52px;
+  border-left:2px solid var(--gold);
+  padding-left:18px;
+}
+
+.hero-btns{display:flex;align-items:center;gap:20px}
+
+.btn-solid{
+  font-family:var(--f-s);font-size:13px;font-weight:500;
+  letter-spacing:0.04em;
+  color:var(--paper);background:var(--ink);
+  padding:13px 30px;border-radius:2px;
+  text-decoration:none;display:inline-block;
+  transition:background .2s,transform .15s;
+}
+.btn-solid:hover{background:var(--ink2);transform:translateY(-1px)}
+
+.btn-ghost-text{
+  font-size:13px;font-weight:400;color:var(--mist2);
+  text-decoration:none;
+  border-bottom:1px solid var(--border2);padding-bottom:2px;
+  transition:color .2s,border-color .2s;
+}
+.btn-ghost-text:hover{color:var(--ink);border-color:var(--ink)}
+
+/* ── ARTIFACT (report card) ── */
+.artifact{
+  width:100%;max-width:368px;
+  background:var(--paper);
+  border:1px solid var(--border2);
+  position:relative;
+  box-shadow:0 2px 40px rgba(12,12,11,0.07);
+}
+/* Gold bar — the seal at top */
+.artifact::before{
+  content:'';position:absolute;
+  top:-1px;left:28px;right:28px;height:3px;
+  background:var(--gold);
+}
+.artifact-head{
+  padding:18px 22px 16px;
+  border-bottom:1px solid var(--border);
+  display:flex;align-items:center;justify-content:space-between;
+}
+.a-id{
+  font-family:var(--f-m);font-size:9px;font-weight:300;
+  letter-spacing:0.14em;text-transform:uppercase;color:var(--mist);
+}
+.a-badge{
+  display:inline-flex;align-items:center;gap:5px;
+  font-family:var(--f-m);font-size:9px;font-weight:500;
+  letter-spacing:0.1em;text-transform:uppercase;
+  color:var(--clean);
+}
+.badge-pulse{
+  width:5px;height:5px;border-radius:50%;background:var(--clean-lt);
+  animation:pulse 2.5s ease-in-out infinite;
+}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:0.25}}
+
+.artifact-body{padding:22px}
+.a-row{
+  display:flex;justify-content:space-between;align-items:baseline;
+  padding:9px 0;border-bottom:1px solid var(--border);
+}
+.a-row:last-of-type{border-bottom:none;padding-bottom:0}
+.a-k{
+  font-family:var(--f-m);font-size:9.5px;font-weight:300;
+  color:var(--mist);letter-spacing:0.1em;text-transform:uppercase;
+}
+.a-v{
+  font-family:var(--f-m);font-size:11px;font-weight:500;
+  color:var(--ink);letter-spacing:0.04em;text-align:right;
+}
+.a-v.ok{color:var(--clean)}
+.a-v.hi{color:var(--gold)}
+
+.score-panel{
+  margin-top:18px;padding:16px;
+  background:var(--paper2);
+}
+.score-top{
+  display:flex;align-items:baseline;justify-content:space-between;
+  margin-bottom:12px;
+}
+.score-n{
+  font-family:var(--f-d);font-size:54px;font-weight:300;
+  line-height:1;color:var(--ink);letter-spacing:-0.02em;
+}
+.score-of{font-family:var(--f-m);font-size:10px;color:var(--mist);margin-left:3px}
+.score-lbl{
+  font-family:var(--f-m);font-size:9px;font-weight:500;
+  letter-spacing:0.14em;text-transform:uppercase;color:var(--clean);
+}
+.bar-track{height:1.5px;background:var(--border2);margin-bottom:12px}
+.bar-fill{
+  height:100%;width:0%;
+  background:linear-gradient(90deg,var(--gold),var(--clean-lt));
+  transition:width 1.8s cubic-bezier(0.16,1,0.3,1);
+}
+.advocate{
+  font-family:var(--f-m);font-size:8.5px;font-weight:300;
+  color:var(--mist);line-height:1.7;
+}
+
+/* ── NUMBERS ── */
+.numbers{
+  display:grid;grid-template-columns:repeat(3,1fr);
+  border-top:1px solid var(--border2);border-bottom:1px solid var(--border2);
+}
+.n-cell{
+  padding:56px 56px 48px;
+  border-right:1px solid var(--border2);
+  position:relative;
+}
+.n-cell:last-child{border-right:none}
+.n-big{
+  font-family:var(--f-d);
+  font-size:clamp(58px,5.5vw,86px);
+  font-weight:300;line-height:1;
+  color:var(--ink);margin-bottom:14px;letter-spacing:-0.02em;
+}
+.n-big em{font-style:italic;color:var(--gold)}
+.n-txt{
+  font-size:13px;font-weight:300;
+  color:var(--mist);line-height:1.7;max-width:210px;
+}
+.n-rule{
+  position:absolute;bottom:0;left:56px;
+  width:28px;height:2px;background:var(--gold);
+}
+
+/* ── TRUST ── */
+.trust{
+  display:grid;grid-template-columns:1fr 2fr;
+  padding:108px 56px;gap:96px;align-items:start;
+}
+.t-label{
+  font-family:var(--f-m);font-size:9px;font-weight:400;
+  letter-spacing:0.2em;text-transform:uppercase;
+  color:var(--gold);margin-bottom:22px;display:block;
+}
+.t-h2{
+  font-family:var(--f-d);
+  font-size:clamp(36px,4vw,56px);
+  font-weight:300;line-height:1.08;color:var(--ink);
+}
+.t-h2 em{font-style:italic;color:var(--gold)}
+
+.t-grid{
+  display:grid;grid-template-columns:1fr 1fr;
+  gap:1px;background:var(--border2);
+}
+.t-card{
+  background:var(--paper);padding:34px 28px;
+  transition:background .2s;
+}
+.t-card:hover{background:var(--paper2)}
+.t-n{
+  font-family:var(--f-d);font-size:38px;font-weight:300;
+  color:var(--border2);line-height:1;margin-bottom:14px;
+}
+.t-card h4{
+  font-size:14px;font-weight:500;color:var(--ink);
+  margin-bottom:9px;letter-spacing:0.01em;
+}
+.t-card p{
+  font-size:13px;font-weight:300;
+  color:var(--mist);line-height:1.8;
+}
+
+/* ── WHO WE SERVE ── */
+.serve{
+  background:var(--ink);
+  padding:108px 56px;
+  display:grid;grid-template-columns:1fr 1fr;gap:96px;align-items:center;
+}
+.s-label{
+  font-family:var(--f-m);font-size:9px;font-weight:400;
+  letter-spacing:0.2em;text-transform:uppercase;
+  color:var(--gold);margin-bottom:22px;display:block;
+}
+.s-h2{
+  font-family:var(--f-d);
+  font-size:clamp(36px,4vw,54px);
+  font-weight:300;line-height:1.08;color:var(--paper);
+}
+.s-h2 em{font-style:italic;color:var(--gold)}
+.s-body{
+  font-size:14px;font-weight:300;
+  color:rgba(242,239,232,0.45);
+  line-height:1.85;margin-top:26px;max-width:360px;
+}
+
+.s-list{display:flex;flex-direction:column}
+.s-item{
+  display:flex;align-items:center;justify-content:space-between;
+  padding:20px 0;
+  border-bottom:1px solid rgba(242,239,232,0.07);
+  transition:padding-left .22s;
+}
+.s-item:first-child{border-top:1px solid rgba(242,239,232,0.07)}
+.s-item:hover{padding-left:10px}
+.s-name{
+  font-family:var(--f-d);font-size:22px;font-weight:300;
+  color:var(--paper);letter-spacing:-0.01em;
+}
+.s-arrow{
+  font-family:var(--f-m);font-size:11px;
+  color:rgba(242,239,232,0.2);
+  transition:color .2s;
+}
+.s-item:hover .s-arrow{color:var(--gold)}
+
+/* ── CTA ── */
+.cta-section{
+  padding:120px 56px;
+  display:grid;grid-template-columns:1fr auto;
+  align-items:end;gap:80px;
+  border-top:1px solid var(--border2);
+  position:relative;overflow:hidden;
+}
+/* Large watermark letter */
+.cta-watermark{
+  position:absolute;right:-40px;bottom:-40px;
+  width:360px;height:360px;
+  background-image:url('assets/logo.png');
+  background-size:contain;background-repeat:no-repeat;background-position:bottom right;
+  opacity:0.04;
+  pointer-events:none;user-select:none;
+}
+.cta-h2{
+  font-family:var(--f-d);
+  font-size:clamp(42px,5.5vw,76px);
+  font-weight:300;line-height:1.04;color:var(--ink);
+}
+.cta-h2 em{font-style:italic;color:var(--gold)}
+.cta-actions{display:flex;flex-direction:column;gap:14px;align-items:flex-end}
+.cta-sub{
+  font-family:var(--f-m);font-size:10px;font-weight:300;
+  color:var(--mist);letter-spacing:0.06em;text-align:right;
+}
+
+/* ── FOOTER ── */
+footer{
+  padding:28px 56px;
+  display:flex;align-items:center;justify-content:space-between;
+  border-top:1px solid var(--border);
+  background:var(--paper2);
+}
+.f-l{display:flex;align-items:center;gap:10px}
+.f-logo{height:18px;width:auto;display:block}
+.f-word{
+  font-family:var(--f-s);font-size:10px;font-weight:500;
+  letter-spacing:0.22em;text-transform:uppercase;color:var(--mist2);
+}
+.f-r{
+  font-family:var(--f-m);font-size:9px;font-weight:300;
+  color:var(--mist);letter-spacing:0.06em;
+}
+
+/* ── ANIMATIONS ── */
+@keyframes rise{
+  from{opacity:0;transform:translateY(24px)}
+  to{opacity:1;transform:translateY(0)}
+}
+.r0{animation:rise .85s cubic-bezier(.16,1,.3,1) both}
+.r1{animation:rise .85s .13s cubic-bezier(.16,1,.3,1) both}
+.r2{animation:rise .85s .26s cubic-bezier(.16,1,.3,1) both}
+.r3{animation:rise .85s .4s cubic-bezier(.16,1,.3,1) both}
+.r4{animation:rise .85s .54s cubic-bezier(.16,1,.3,1) both}
+
+.reveal{opacity:0;transform:translateY(20px);transition:opacity .8s ease,transform .8s ease}
+.reveal.in{opacity:1;transform:none}
+
+/* ── RESPONSIVE ── */
+@media(max-width:960px){
+  nav{padding:0 24px}
+  .nav-link{display:none}
+  .hero{grid-template-columns:1fr}
+  .hero-l{padding:120px 24px 56px;border-right:none;border-bottom:1px solid var(--border2)}
+  .hero-r{padding:56px 24px;min-height:auto}
+  .numbers{grid-template-columns:1fr}
+  .n-cell{border-right:none;border-bottom:1px solid var(--border2);padding:40px 24px}
+  .trust{grid-template-columns:1fr;padding:70px 24px;gap:48px}
+  .t-grid{grid-template-columns:1fr}
+  .serve{grid-template-columns:1fr;padding:70px 24px;gap:48px}
+  .cta-section{grid-template-columns:1fr;padding:80px 24px;gap:36px}
+  .cta-actions{align-items:flex-start}
+  footer{flex-direction:column;gap:8px;padding:24px}
+}
+</style>
+</head>
+<body>
+
+<div id="cur"></div>
+
+<!-- ── NAV ── -->
+<nav>
+  <div class="nav-l">
+    <!-- Real Akuuva logo: PNG from uploads, displayed black on light bg -->
+    <img
+      src="assets/logo.png"
+      alt="Akuuva"
+      class="nav-logo"
+      onerror="this.style.display='none'"
+    >
+    <span class="nav-word">Akuuva</span>
+  </div>
+  <div class="nav-r">
+    <a href="#trust" class="nav-link">Why Akuuva</a>
+    <a href="#serve" class="nav-link">Who We Serve</a>
+    <a href="#contact" class="nav-cta">Request Report</a>
+  </div>
+</nav>
+
+<!-- ── HERO ── -->
+<section class="hero">
+  <div class="survey-lines"></div>
+
+  <div class="hero-l">
+    <div class="eyebrow r0">
+      <div class="eyebrow-rule"></div>
+      <span class="eyebrow-text">Institutional Land Due Diligence</span>
+    </div>
+
+    <h1 class="hero-h1 r1">
+      Title certainty<br>
+      for decisions<br>
+      <em>that cannot wait</em>
+    </h1>
+
+    <p class="hero-sub r2">
+      Land acquisition at institutional scale demands intelligence that holds in a boardroom, a banker's office, and a court of law. Akuuva delivers exactly that.
+    </p>
+
+    <div class="hero-btns r3">
+      <a href="#contact" class="btn-solid">Request a Free Report</a>
+      <a href="#trust" class="btn-ghost-text">See what we deliver</a>
+    </div>
+  </div>
+
+  <div class="hero-r">
+    <div class="artifact r4">
+      <div class="artifact-head">
+        <span class="a-id">AKV · NCR-2024-0312</span>
+        <span class="a-badge"><span class="badge-pulse"></span>Clean Title</span>
+      </div>
+      <div class="artifact-body">
+        <div class="a-row">
+          <span class="a-k">Location</span>
+          <span class="a-v">Sector 72, Gurugram</span>
+        </div>
+        <div class="a-row">
+          <span class="a-k">Area</span>
+          <span class="a-v">8.4 Acres</span>
+        </div>
+        <div class="a-row">
+          <span class="a-k">History Depth</span>
+          <span class="a-v">1981 – 2024</span>
+        </div>
+        <div class="a-row">
+          <span class="a-k">Encumbrances</span>
+          <span class="a-v ok">None Detected</span>
+        </div>
+        <div class="a-row">
+          <span class="a-k">Litigation</span>
+          <span class="a-v ok">Clear</span>
+        </div>
+        <div class="a-row">
+          <span class="a-k">Delivered</span>
+          <span class="a-v hi">9 Working Days</span>
+        </div>
+
+        <div class="score-panel">
+          <div class="score-top">
+            <div>
+              <span class="score-n">91</span><span class="score-of">/100</span>
+            </div>
+            <span class="score-lbl">Title Confidence</span>
+          </div>
+          <div class="bar-track">
+            <div class="bar-fill" id="scoreBar"></div>
+          </div>
+          <p class="advocate" style="margin-top:12px">
+            Co-signed · Senior Advocate · Bar Council of Delhi<br>
+            Ref. AKV-NCR-2024-0312 · All findings independently verified
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── NUMBERS ── -->
+<div class="numbers reveal">
+  <div class="n-cell">
+    <div class="n-big"><em>60%</em></div>
+    <p class="n-txt">Less than what law firms charge for comparable land due diligence</p>
+    <div class="n-rule"></div>
+  </div>
+  <div class="n-cell">
+    <div class="n-big">10<em>×</em></div>
+    <p class="n-txt">Faster. Acquisitions move while your competitors wait on reports</p>
+    <div class="n-rule"></div>
+  </div>
+  <div class="n-cell">
+    <div class="n-big"><em>₹0</em></div>
+    <p class="n-txt">Your first parcel report. We would rather you see the work before you pay</p>
+    <div class="n-rule"></div>
+  </div>
+</div>
+
+<!-- ── TRUST ── -->
+<section class="trust" id="trust">
+  <div class="reveal">
+    <span class="t-label">What we deliver</span>
+    <h2 class="t-h2">Intelligence<br>that <em>holds up</em><br>in any room</h2>
+  </div>
+  <div class="t-grid reveal">
+    <div class="t-card">
+      <div class="t-n">01</div>
+      <h4>Advocate-co-signed, every time</h4>
+      <p>Every report carries the signature of a senior advocate registered with the State Bar Council. Table it in a board meeting, a banker presentation, or a legal review — without hesitation.</p>
+    </div>
+    <div class="t-card">
+      <div class="t-n">02</div>
+      <h4>Structured risk scores, not opinions</h4>
+      <p>A quantified confidence score, not a qualitative paragraph open to interpretation. Your acquisition team receives precision — the kind that ends arguments rather than starting them.</p>
+    </div>
+    <div class="t-card">
+      <div class="t-n">03</div>
+      <h4>Continuous portfolio watch</h4>
+      <p>After acquisition, your parcels do not become blind spots. New encumbrances, adverse filings, and litigation are monitored — and flagged before they become material problems.</p>
+    </div>
+    <div class="t-card">
+      <div class="t-n">04</div>
+      <h4>Absolute confidentiality</h4>
+      <p>Your acquisition targets and parcel data are yours alone. We do not cross-reference client data or work with competing parties on the same assets. Enterprise NDAs on request.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ── WHO WE SERVE ── -->
+<section class="serve" id="serve">
+  <div class="reveal">
+    <span class="s-label">Built for</span>
+    <h2 class="s-h2">India's most<br>serious land<br><em>acquirers</em></h2>
+    <p class="s-body">Institutional developers, BFSI land finance desks, and real estate funds where a single title defect costs more than the entire due diligence budget.</p>
+  </div>
+  <div class="s-list reveal">
+    <div class="s-item">
+      <span class="s-name">Developer Acquisition Teams</span>
+      <span class="s-arrow">→</span>
+    </div>
+    <div class="s-item">
+      <span class="s-name">Land Acquisition Leadership</span>
+      <span class="s-arrow">→</span>
+    </div>
+    <div class="s-item">
+      <span class="s-name">BFSI Land Finance Desks</span>
+      <span class="s-arrow">→</span>
+    </div>
+    <div class="s-item">
+      <span class="s-name">Real Estate PE &amp; VC Funds</span>
+      <span class="s-arrow">→</span>
+    </div>
+    <div class="s-item">
+      <span class="s-name">Infrastructure Capital</span>
+      <span class="s-arrow">→</span>
+    </div>
+  </div>
+</section>
+
+<!-- ── CTA ── -->
+<section class="cta-section" id="contact">
+  <div class="cta-watermark"></div>
+  <h2 class="cta-h2 reveal">
+    One parcel.<br>
+    On us.<br>
+    <em>This week.</em>
+  </h2>
+  <div class="cta-actions reveal">
+    <a href="mailto:support@akuuva.com?subject=Free%20Title%20Report%20Request" class="btn-solid">
+      Request Free Report →
+    </a>
+    <p class="cta-sub">support@akuuva.com</p>
+    <p class="cta-sub">No cost &nbsp;·&nbsp; No commitment</p>
+  </div>
+</section>
+
+<!-- ── FOOTER ── -->
+<footer>
+  <div class="f-l">
+    <img
+      src="assets/logo.png"
+      alt="Akuuva"
+      class="f-logo"
+      onerror="this.style.display='none'"
+    >
+    <span class="f-word">Akuuva</span>
+  </div>
+  <span class="f-r">© 2025 Akuuva</span>
+</footer>
+
+<script>
+/* Custom cursor */
+const cur=document.getElementById('cur');
+let mx=0,my=0,cx=0,cy=0;
+document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY});
+document.querySelectorAll('a,button').forEach(el=>{
+  el.addEventListener('mouseenter',()=>cur.classList.add('h'));
+  el.addEventListener('mouseleave',()=>cur.classList.remove('h'));
+});
+(function tick(){
+  cx+=(mx-cx)*.17;cy+=(my-cy)*.17;
+  cur.style.left=cx+'px';cur.style.top=cy+'px';
+  requestAnimationFrame(tick);
+})();
+
+/* Scroll reveal */
+const io=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{
+    if(e.isIntersecting){
+      e.target.classList.add('in');
+      /* Animate score bar when artifact comes into view */
+      if(e.target.querySelector && e.target.querySelector('#scoreBar')){
+        setTimeout(()=>{document.getElementById('scoreBar').style.width='91%'},200);
+      }
+    }
+  });
+},{threshold:0.1});
+document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+
+/* Also trigger bar if hero is already visible on load */
+setTimeout(()=>{
+  const bar=document.getElementById('scoreBar');
+  if(bar)bar.style.width='91%';
+},600);
+</script>
+</body>
+</html>
