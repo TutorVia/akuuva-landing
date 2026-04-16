@@ -1,241 +1,174 @@
 
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,500;0,9..144,700;0,9..144,900;1,9..144,300;1,9..144,500;1,9..144,700&family=Inter:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,600;0,9..144,700;0,9..144,900;1,9..144,300;1,9..144,600;1,9..144,700&family=Inter:wght@400;500;600;700;800;900&family=IBM+Plex+Sans:wght@300;400;500&family=DM+Mono:wght@400;500&display=swap');
 *{box-sizing:border-box;margin:0;padding:0}
 :root{
-  --bg:#F5F1E8;--bg2:#EDE9DF;--bg3:#E5DFCF;
+  /* Akuuva.com warm palette */
+  --bg:#F5F1E8;
+  --bg2:#EDE9DF;
   --white:#FFFFFF;
-  --forest:#0F3D2E;--forest2:#1A5240;--forest3:#0A2820;
-  --terra:#C96A3D;--terra2:#B05A30;
-  --spark:#3ED598;--spark2:rgba(62,213,152,0.15);
-  --ink:#1A1A1A;--mid:#6B7280;--sub:#9CA3AF;
-  --rule:#E5E7EB;--rule2:#D1D5DB;
-  --sh:0 1px 3px rgba(0,0,0,0.05),0 4px 16px rgba(0,0,0,0.04);
-  --sh2:0 2px 12px rgba(0,0,0,0.06),0 20px 60px rgba(0,0,0,0.09);
-  --serif:'Fraunces',Georgia,serif;
+  --terra:#C96A3D;
+  --terra2:#B05A30;
+  --spark:#3ED598;
+
+  /* Spec doc institutional palette */
+  --navy:#0A192F;
+  --navy2:#0D2137;
+  --emerald:#1A7A5E;
+  --emerald2:#22C55E;
+  --amber:#B45309;
+  --danger:#991B1B;
+
+  /* Blended text + border */
+  --ink:#0A192F;
+  --mid:#4A6080;
+  --sub:#7A8FA8;
+  --rule:#E2E8F0;
+  --rule2:#CBD5E1;
+  --surface:#F5F5F7;
+
   --sans:'Inter',sans-serif;
+  --serif:'Fraunces',Georgia,serif;
+  --body:'IBM Plex Sans',sans-serif;
   --mono:'DM Mono',monospace;
 }
-body{background:var(--bg);color:var(--ink);font-family:var(--sans);-webkit-font-smoothing:antialiased;line-height:1.6;overflow-x:hidden}
+body{background:var(--bg);color:var(--ink);font-family:var(--body);-webkit-font-smoothing:antialiased;line-height:1.65;overflow-x:hidden}
 
-/* ── NAV ─────────────────────────── */
-.nav{background:rgba(245,241,232,0.94);backdrop-filter:blur(20px);border-bottom:1px solid var(--rule);padding:0 52px;height:60px;display:flex;align-items:center;justify-content:space-between;}
-.nav-logo{display:flex;align-items:center;gap:10px;text-decoration:none}
-.nav-mark{width:30px;height:30px;background:var(--forest);border-radius:8px;display:flex;align-items:center;justify-content:center;}
-.nw{font-family:var(--serif);font-size:18px;font-weight:700;color:var(--ink);letter-spacing:-0.02em}
-.nav-links{display:flex;gap:34px;list-style:none}
-.nav-links a{font-size:13px;color:var(--mid);text-decoration:none;font-weight:400;transition:color .2s}
-.nav-links a:hover{color:var(--ink)}
-.nav-cta{font-size:13px;font-weight:500;padding:9px 22px;border-radius:999px;background:var(--terra);color:#fff;text-decoration:none;letter-spacing:0.01em;}
+/* NAV — warm bg, navy text, terra CTA */
+.nav{background:rgba(245,241,232,0.95);backdrop-filter:blur(18px);border-bottom:1px solid var(--rule);padding:0 52px;height:58px;display:flex;align-items:center;justify-content:space-between;}
+.nav-logo{display:flex;align-items:center;gap:10px;text-decoration:none;}
+.nav-mark{width:28px;height:28px;background:var(--navy);border-radius:7px;display:flex;align-items:center;justify-content:center;}
+.nav-word{font-family:var(--serif);font-size:17px;font-weight:700;color:var(--ink);letter-spacing:-0.01em;}
+.nav-links{display:flex;gap:32px;list-style:none;}
+.nav-links a{font-family:var(--sans);font-size:13px;color:var(--mid);text-decoration:none;font-weight:400;transition:color .2s;}
+.nav-links a:hover{color:var(--ink);}
+.nav-cta{font-family:var(--sans);font-size:13px;font-weight:600;padding:8px 20px;border-radius:999px;background:var(--terra);color:#fff;text-decoration:none;}
 
-/* ── HERO ────────────────────────── */
-.hero{padding:80px 52px 64px;background:var(--bg);}
-.hero-inner{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center;}
-.hero-kicker{display:inline-flex;align-items:center;gap:7px;font-size:11px;font-weight:500;letter-spacing:0.09em;text-transform:uppercase;color:var(--forest);background:rgba(15,61,46,0.09);padding:5px 13px;border-radius:999px;margin-bottom:20px;}
-.kd{width:5px;height:5px;border-radius:50%;background:var(--spark)}
-.hero-h1{font-family:var(--serif);font-size:clamp(38px,4.5vw,60px);font-weight:700;line-height:1.04;letter-spacing:-0.035em;color:var(--ink);margin-bottom:8px;}
-.hero-h1-sub{font-family:var(--serif);font-size:clamp(22px,2.8vw,34px);font-weight:300;font-style:italic;color:var(--forest);line-height:1.2;margin-bottom:22px;letter-spacing:-0.02em;}
-.hero-rule{width:48px;height:2px;background:var(--terra);border-radius:999px;margin-bottom:22px;}
-.hero-p{font-size:15px;font-weight:300;color:var(--mid);line-height:1.8;max-width:440px;margin-bottom:32px;}
-.hero-btns{display:flex;gap:12px;margin-bottom:44px}
-.btn-terra{font-size:14px;font-weight:500;padding:12px 26px;border-radius:999px;background:var(--terra);color:#fff;border:none;cursor:pointer;display:inline-block;text-decoration:none;box-shadow:0 2px 16px rgba(201,106,61,0.24);}
-.btn-ghost{font-size:14px;font-weight:400;padding:12px 22px;border-radius:999px;background:transparent;color:var(--mid);border:1px solid var(--rule2);cursor:pointer;display:inline-block;text-decoration:none;}
-.hero-stats{display:flex;gap:0;border:1px solid var(--rule);border-radius:14px;overflow:hidden;background:var(--white);}
-.hstat{flex:1;padding:16px 18px;border-right:1px solid var(--rule);}
-.hstat:last-child{border-right:none}
-.hstat-n{font-family:var(--serif);font-size:22px;font-weight:700;color:var(--forest);display:block;line-height:1;letter-spacing:-0.02em}
-.hstat-l{font-size:11px;color:var(--mid);margin-top:4px;display:block;line-height:1.4}
+/* HERO — navy background like spec, warm card on right */
+.hero{background:var(--navy);padding:64px 52px 56px;}
+.hero-inner{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center;}
 
-/* HERO RIGHT — Score card large */
-.hero-score-card{background:var(--forest3);border-radius:20px;overflow:hidden;box-shadow:var(--sh2);}
-.hsc-header{padding:20px 24px 16px;border-bottom:1px solid rgba(255,255,255,0.06);}
-.hsc-top-row{display:flex;align-items:center;justify-content:space-between;margin-bottom:12px;}
-.hsc-badge{display:inline-flex;align-items:center;gap:5px;font-family:var(--mono);font-size:9px;color:rgba(62,213,152,0.8);letter-spacing:0.1em;text-transform:uppercase;border:1px solid rgba(62,213,152,0.2);padding:3px 9px;border-radius:4px;}
-.hsc-live-dot{width:5px;height:5px;border-radius:50%;background:var(--spark);}
-.hsc-id{font-family:var(--mono);font-size:9px;color:rgba(255,255,255,0.25);letter-spacing:0.06em;}
-.hsc-parcel{font-family:var(--serif);font-size:15px;font-weight:500;color:rgba(245,241,232,0.9);margin-bottom:3px;}
-.hsc-sub{font-size:11px;color:rgba(255,255,255,0.35);font-family:var(--mono);}
+/* Hero left */
+.hero-eyebrow{font-family:var(--mono);font-size:10px;font-weight:500;letter-spacing:0.12em;text-transform:uppercase;color:rgba(62,213,152,0.8);margin-bottom:18px;display:flex;align-items:center;gap:8px;}
+.hl{width:18px;height:1px;background:rgba(62,213,152,0.6);}
+.hero-h1{font-family:var(--sans);font-size:clamp(36px,4vw,52px);font-weight:900;line-height:1.04;letter-spacing:-1px;color:#FFFFFF;margin-bottom:16px;}
+.hero-sub-italic{font-family:var(--serif);font-size:clamp(18px,2.2vw,26px);font-weight:300;font-style:italic;color:rgba(245,241,232,0.5);line-height:1.25;margin-bottom:22px;letter-spacing:-0.02em;}
+.hero-rule{width:40px;height:2px;background:var(--terra);border-radius:999px;margin-bottom:20px;}
+.hero-p{font-family:var(--body);font-size:14px;color:rgba(255,255,255,0.5);line-height:1.8;max-width:440px;margin-bottom:32px;}
+.hero-p strong{color:rgba(255,255,255,0.8);font-weight:500;}
+.hero-btns{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:44px;}
+.btn-primary{font-family:var(--sans);font-size:14px;font-weight:700;padding:13px 24px;border-radius:6px;background:#FFFFFF;color:var(--navy);border:none;cursor:pointer;display:inline-block;text-decoration:none;letter-spacing:0.01em;}
+.btn-secondary{font-family:var(--sans);font-size:14px;font-weight:500;padding:13px 22px;border-radius:6px;background:transparent;color:#fff;border:1.5px solid rgba(255,255,255,0.25);cursor:pointer;display:inline-block;text-decoration:none;}
+.hero-stats{display:grid;grid-template-columns:repeat(4,1fr);gap:0;border:1px solid rgba(255,255,255,0.08);border-radius:10px;overflow:hidden;}
+.hstat{padding:14px 16px;border-right:1px solid rgba(255,255,255,0.08);}
+.hstat:last-child{border-right:none;}
+.hstat-n{font-family:var(--sans);font-size:18px;font-weight:900;color:#FFFFFF;display:block;line-height:1;letter-spacing:-0.5px;}
+.hstat-l{font-size:10px;color:rgba(255,255,255,0.3);margin-top:4px;display:block;font-family:var(--mono);letter-spacing:0.02em;}
 
-/* Big score display */
-.hsc-score-row{display:flex;align-items:flex-end;gap:20px;padding:20px 24px;border-bottom:1px solid rgba(255,255,255,0.06);}
-.hsc-score-big{display:flex;flex-direction:column;}
-.hsc-score-label{font-family:var(--mono);font-size:9px;color:rgba(255,255,255,0.3);letter-spacing:0.1em;text-transform:uppercase;margin-bottom:4px;}
-.hsc-score-num{font-family:var(--serif);font-size:72px;font-weight:900;color:#F5F1E8;line-height:1;letter-spacing:-0.04em;}
-.hsc-score-denom{font-family:var(--mono);font-size:18px;color:rgba(255,255,255,0.3);font-weight:400;margin-left:2px;}
-.hsc-verdict{display:inline-flex;align-items:center;gap:6px;padding:7px 16px;border-radius:999px;background:rgba(62,213,152,0.15);border:1px solid rgba(62,213,152,0.3);font-size:13px;font-weight:600;color:var(--spark);margin-bottom:8px;letter-spacing:0.02em;}
-.hsc-verdict-dot{width:6px;height:6px;border-radius:50%;background:var(--spark);}
-.hsc-pillar-mini{flex:1;display:flex;flex-direction:column;gap:7px;}
-.hpm-row{display:flex;align-items:center;gap:8px;}
-.hpm-name{font-family:var(--mono);font-size:9px;color:rgba(255,255,255,0.3);width:58px;flex-shrink:0;text-transform:uppercase;letter-spacing:0.04em;}
-.hpm-track{flex:1;height:3px;background:rgba(255,255,255,0.08);border-radius:999px;overflow:hidden;}
-.hpm-fill{height:100%;border-radius:999px;background:var(--spark);}
-.hpm-val{font-family:var(--mono);font-size:9px;color:rgba(255,255,255,0.3);width:18px;text-align:right;}
+/* SCORE CARD — warm card on dark hero */
+.score-card{background:var(--white);border-radius:16px;overflow:hidden;box-shadow:0 4px 40px rgba(0,0,0,0.3),0 1px 6px rgba(0,0,0,0.15);}
+.sc-hdr{background:var(--bg);border-bottom:1px solid var(--rule);padding:14px 18px;display:flex;align-items:center;justify-content:space-between;}
+.sc-eyebrow{font-family:var(--mono);font-size:9px;color:var(--sub);letter-spacing:0.08em;text-transform:uppercase;margin-bottom:3px;}
+.sc-parcel{font-family:var(--sans);font-size:13px;font-weight:700;color:var(--ink);}
+.sc-live{display:inline-flex;align-items:center;gap:5px;font-family:var(--mono);font-size:9px;color:var(--emerald);letter-spacing:0.06em;background:rgba(26,122,94,0.08);border:1px solid rgba(26,122,94,0.18);padding:4px 9px;border-radius:4px;}
+.sc-live-dot{width:5px;height:5px;border-radius:50%;background:var(--emerald2);}
 
-/* Flags strip */
-.hsc-flags{padding:14px 24px;display:flex;flex-direction:column;gap:6px;border-bottom:1px solid rgba(255,255,255,0.06);}
-.hsc-flag{display:flex;align-items:center;gap:8px;font-size:11px;padding:6px 10px;border-radius:6px;}
-.hf-r{background:rgba(255,59,48,0.1);border:1px solid rgba(255,59,48,0.2);color:#FF8080;}
-.hf-a{background:rgba(255,149,0,0.1);border:1px solid rgba(255,149,0,0.2);color:#FFA940;}
-.hf-g{background:rgba(62,213,152,0.08);border:1px solid rgba(62,213,152,0.2);color:var(--spark);}
+/* Big score */
+.sc-score-row{padding:18px 18px 14px;display:flex;align-items:center;gap:18px;border-bottom:1px solid var(--rule);}
+.sc-num{font-family:var(--sans);font-size:56px;font-weight:900;color:var(--ink);line-height:1;letter-spacing:-2px;font-variant-numeric:tabular-nums;}
+.sc-den{font-family:var(--sans);font-size:18px;font-weight:500;color:var(--sub);}
+.sc-lbl{font-family:var(--mono);font-size:8px;color:var(--sub);letter-spacing:0.07em;text-transform:uppercase;margin-top:3px;}
+.sc-bar-col{flex:1;}
+.sc-bar-lbl{font-family:var(--mono);font-size:9px;color:var(--sub);letter-spacing:0.06em;text-transform:uppercase;margin-bottom:6px;}
+.sc-bar-track{height:9px;background:var(--rule);border-radius:999px;overflow:hidden;}
+.sc-bar-fill{height:100%;border-radius:999px;background:linear-gradient(90deg,var(--emerald),var(--emerald2));width:70.9%;}
+.sc-bar-pct{font-family:var(--mono);font-size:9px;color:var(--emerald);font-weight:500;margin-top:5px;}
 
-/* Projection bar */
-.hsc-proj{padding:14px 24px;display:flex;align-items:center;justify-content:space-between;}
-.hsc-proj-lbl{font-family:var(--mono);font-size:10px;color:rgba(255,255,255,0.3);letter-spacing:0.05em;text-transform:uppercase;}
-.hsc-proj-val{font-family:var(--serif);font-size:20px;font-weight:700;color:var(--spark);letter-spacing:-0.02em;}
+/* Status 2x2 */
+.sc-status{display:grid;grid-template-columns:1fr 1fr;border-bottom:1px solid var(--rule);}
+.sc-si{padding:11px 18px;border-right:1px solid var(--rule);}
+.sc-si:nth-child(2n){border-right:none;}
+.sc-si:nth-child(3),.sc-si:nth-child(4){border-top:1px solid var(--rule);}
+.sc-sk{font-family:var(--mono);font-size:8px;color:var(--sub);letter-spacing:0.07em;text-transform:uppercase;margin-bottom:3px;}
+.sc-sv{font-family:var(--sans);font-size:12px;font-weight:600;color:var(--ink);}
+.sc-sv.ok{color:var(--emerald);}
+.sc-sv.warn{color:var(--amber);}
 
-/* ── CIBIL COMPARISON ────────────── */
-.cibil-sec{padding:72px 52px;background:var(--white);border-top:1px solid var(--rule);border-bottom:1px solid var(--rule);}
-.cibil-inner{max-width:1100px;margin:0 auto;}
-.sec-label{font-size:11px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:var(--terra);margin-bottom:12px;display:flex;align-items:center;gap:8px;}
-.sec-label::before{content:'';display:block;width:20px;height:1.5px;background:var(--terra);}
-.sec-h2{font-family:var(--serif);font-size:clamp(26px,3vw,40px);font-weight:700;letter-spacing:-0.03em;color:var(--ink);line-height:1.1;margin-bottom:8px;}
-.sec-h2 em{font-style:italic;font-weight:300;color:var(--forest);}
-.sec-sub{font-size:15px;font-weight:300;color:var(--mid);line-height:1.75;max-width:520px;margin-bottom:48px;}
+/* Advocate */
+.sc-adv{padding:12px 18px;background:rgba(26,122,94,0.04);border-bottom:1px solid rgba(26,122,94,0.1);}
+.sc-adv-inner{display:flex;align-items:flex-start;gap:10px;}
+.sc-adv-icon{width:30px;height:30px;border-radius:50%;background:rgba(26,122,94,0.1);border:1.5px solid rgba(26,122,94,0.2);display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+.sc-adv-name{font-family:var(--sans);font-size:12px;font-weight:700;color:var(--ink);margin-bottom:2px;}
+.sc-adv-detail{font-family:var(--mono);font-size:8px;color:var(--sub);letter-spacing:0.04em;line-height:1.6;}
+.sc-adv-badge{display:inline-flex;align-items:center;gap:4px;font-family:var(--mono);font-size:8px;color:var(--emerald);letter-spacing:0.05em;margin-top:4px;}
 
-/* Analogy grid */
-.analogy-grid{display:grid;grid-template-columns:1fr 56px 1fr;gap:0;align-items:center;margin-bottom:48px;}
-.analogy-card{border-radius:16px;overflow:hidden;border:1px solid var(--rule);}
-.ac-header{padding:16px 20px;border-bottom:1px solid var(--rule);}
-.ac-tag{font-family:var(--mono);font-size:9px;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;margin-bottom:6px;}
-.ac-tag.cibil{color:#1A56CC;}
-.ac-tag.akuuva{color:var(--forest);}
-.ac-title{font-family:var(--serif);font-size:17px;font-weight:700;color:var(--ink);}
-.ac-body{padding:16px 20px;background:var(--bg);display:flex;flex-direction:column;gap:10px;}
-.ac-row{display:flex;align-items:flex-start;gap:10px;}
-.ac-dot{width:6px;height:6px;border-radius:50%;flex-shrink:0;margin-top:6px;}
-.ac-dot.cibil{background:#1A56CC;}
-.ac-dot.akuuva{background:var(--forest);}
-.ac-text{font-size:13px;color:var(--mid);line-height:1.55;}
-.analogy-vs{display:flex;align-items:center;justify-content:center;}
-.vs-circle{width:40px;height:40px;border-radius:50%;border:1.5px solid var(--rule2);background:var(--white);display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:600;color:var(--mid);}
+/* Card footer */
+.sc-foot{padding:9px 18px;display:flex;justify-content:space-between;background:var(--bg);}
+.sc-foot-id{font-family:var(--mono);font-size:8px;color:var(--sub);letter-spacing:0.05em;}
+.sc-foot-ts{font-family:var(--mono);font-size:8px;color:var(--sub);letter-spacing:0.04em;}
 
-/* Who we serve */
-.who-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
-.wc{background:var(--bg);border-radius:16px;padding:28px;border:1px solid var(--rule);transition:box-shadow .25s,transform .2s;}
-.wc:hover{box-shadow:var(--sh2);transform:translateY(-2px);}
-.wc-stripe{width:28px;height:3px;border-radius:999px;margin-bottom:16px;}
-.wc-stripe.f{background:var(--forest);}
-.wc-stripe.t{background:var(--terra);}
-.wc-tag{font-size:10px;font-weight:600;letter-spacing:0.07em;text-transform:uppercase;color:var(--mid);margin-bottom:7px;}
-.wc-h{font-family:var(--serif);font-size:18px;font-weight:700;color:var(--ink);margin-bottom:10px;letter-spacing:-0.01em;}
-.wc-p{font-size:13px;color:var(--mid);line-height:1.75;margin-bottom:16px;font-weight:300;}
-.wc-list{list-style:none;display:flex;flex-direction:column;gap:7px;}
-.wc-list li{font-size:12px;color:var(--mid);display:flex;align-items:flex-start;gap:7px;line-height:1.5;}
-.wc-list li::before{content:'';width:4px;height:4px;border-radius:50%;flex-shrink:0;margin-top:6px;}
-.wc-list.f li::before{background:var(--forest);}
-.wc-list.t li::before{background:var(--terra);}
+/* BENTO — warm bg */
+.bento-sec{padding:64px 52px;background:var(--bg2);border-bottom:1px solid var(--rule);}
+.bento-inner{max-width:1200px;margin:0 auto;}
+.sec-label{font-family:var(--mono);font-size:10px;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;color:var(--terra);margin-bottom:12px;display:flex;align-items:center;gap:8px;}
+.sec-label::before{content:'';display:block;width:18px;height:1.5px;background:var(--terra);}
+.sec-h2{font-family:var(--sans);font-size:clamp(24px,2.8vw,36px);font-weight:800;letter-spacing:-0.5px;color:var(--ink);margin-bottom:36px;line-height:1.1;}
+.sec-h2 em{font-family:var(--serif);font-style:italic;font-weight:300;color:var(--emerald);}
+.bento-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;}
+.bcard{background:var(--white);border-radius:14px;padding:26px;border:1px solid var(--rule);cursor:default;transition:box-shadow .2s,transform .2s;overflow:hidden;}
+.bcard:hover{box-shadow:0 6px 28px rgba(10,25,47,0.1);transform:translateY(-2px);}
+.bcard-tag{font-family:var(--mono);font-size:9px;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;color:var(--emerald);margin-bottom:10px;}
+.bcard-title{font-family:var(--sans);font-size:17px;font-weight:800;color:var(--ink);margin-bottom:8px;letter-spacing:-0.3px;line-height:1.2;}
+.bcard-body{font-family:var(--body);font-size:13px;color:var(--mid);line-height:1.7;}
+.bcard-meta{font-family:var(--mono);font-size:10px;color:var(--sub);margin-top:12px;padding-top:11px;border-top:1px solid var(--rule);letter-spacing:0.02em;}
+.bcard-tip{font-family:var(--body);font-size:12px;color:var(--emerald);line-height:1.65;max-height:0;overflow:hidden;transition:max-height .22s ease-in-out,opacity .22s ease-in-out,margin-top .22s;opacity:0;margin-top:0;}
+.bcard:hover .bcard-tip{max-height:100px;opacity:1;margin-top:11px;}
 
-/* ── BLOOMBERG FLOW ───────────────── */
-.flow-sec{padding:72px 52px;background:var(--bg2);border-bottom:1px solid var(--rule);}
-.flow-inner{max-width:1100px;margin:0 auto;}
-.flow-header{margin-bottom:44px;}
-.bb{background:#080C09;border-radius:20px;border:1px solid #1A2A1E;overflow:hidden;box-shadow:0 8px 60px rgba(0,0,0,0.35);}
-.bb-bar{background:#0D1410;border-bottom:1px solid #182018;padding:9px 18px;display:flex;align-items:center;justify-content:space-between;}
-.bb-brand{font-family:var(--mono);font-size:10px;font-weight:500;color:#3ED598;letter-spacing:0.1em;}
-.bb-title-bar{font-family:var(--mono);font-size:10px;color:#2A4030;letter-spacing:0.06em;}
-.bb-time{font-family:var(--mono);font-size:10px;color:#1E3025;letter-spacing:0.06em;}
-.bb-layout{display:grid;grid-template-columns:188px 1fr 188px;}
+/* DELTA TABLE */
+.delta-sec{padding:64px 52px;background:var(--white);border-bottom:1px solid var(--rule);}
+.delta-inner{max-width:1200px;margin:0 auto;}
+.dtable{width:100%;border-collapse:collapse;margin-top:32px;border-radius:12px;overflow:hidden;border:1px solid var(--rule);}
+.dtable th{padding:13px 20px;font-family:var(--sans);font-size:12px;font-weight:700;letter-spacing:0.04em;text-align:left;border-bottom:2px solid var(--rule);}
+.dtable th.metric{color:var(--sub);font-weight:500;background:var(--bg);}
+.dtable th.trad{color:var(--mid);background:var(--surface);}
+.dtable th.akuuva{color:#fff;background:var(--navy);}
+.dtable td{padding:13px 20px;font-family:var(--body);font-size:13px;border-bottom:1px solid var(--rule);vertical-align:top;line-height:1.5;}
+.dtable tr:last-child td{border-bottom:none;}
+.dtable td.metric{font-family:var(--sans);font-size:13px;font-weight:600;color:var(--ink);background:var(--bg);}
+.dtable td.trad{color:var(--mid);}
+.dtable td.akuuva{font-weight:600;color:var(--emerald);background:rgba(26,122,94,0.03);}
+.dtable tr:hover td.akuuva{background:rgba(26,122,94,0.07);}
 
-/* Left col */
-.bb-left{border-right:1px solid #0F1F14;padding:18px 16px;}
-.bb-col-hdr{font-family:var(--mono);font-size:9px;color:#3ED598;letter-spacing:0.12em;text-transform:uppercase;margin-bottom:12px;padding-bottom:7px;border-bottom:1px solid #0F1F14;}
-.bb-field{margin-bottom:9px;}
-.bb-fl{font-family:var(--mono);font-size:8px;color:#2A4030;letter-spacing:0.07em;text-transform:uppercase;margin-bottom:3px;}
-.bb-fv{font-family:var(--mono);font-size:11px;color:#8AADA0;background:#0A1510;border:1px solid #0F1F14;border-radius:3px;padding:4px 8px;}
-.bb-fv.hi{color:#3ED598;}
-.bb-fv.warn{color:#FFAA00;}
-.bb-upload-btn{margin-top:14px;background:rgba(62,213,152,0.15);border:1px solid rgba(62,213,152,0.25);border-radius:4px;padding:8px 10px;font-family:var(--mono);font-size:9px;color:#3ED598;letter-spacing:0.06em;text-align:center;}
-.bb-status-row{margin-top:14px;padding-top:10px;border-top:1px solid #0F1F14;}
-.bb-status-dot{display:inline-flex;align-items:center;gap:5px;font-family:var(--mono);font-size:9px;color:#3ED598;letter-spacing:0.06em;}
-.bb-sdot{width:5px;height:5px;border-radius:50%;background:#3ED598;}
+/* QUOTE */
+.quote-sec{padding:56px 52px;background:var(--bg);border-bottom:1px solid var(--rule);}
+.quote-inner{max-width:760px;margin:0 auto;display:flex;align-items:flex-start;gap:28px;}
+.quote-bar{width:3px;min-height:80px;background:var(--terra);border-radius:999px;flex-shrink:0;align-self:stretch;}
+.quote-text{font-family:var(--serif);font-size:clamp(16px,2vw,21px);font-weight:300;font-style:italic;color:var(--ink);line-height:1.5;letter-spacing:-0.01em;}
+.quote-text strong{font-style:normal;font-weight:700;}
+.quote-attr{margin-top:14px;font-family:var(--mono);font-size:10px;color:var(--sub);letter-spacing:0.06em;text-transform:uppercase;}
 
-/* Centre flow */
-.bb-centre{padding:24px 20px;display:flex;flex-direction:column;align-items:center;gap:0;}
-.fn{background:#0D1A10;border:1px solid #1A2A1E;border-radius:6px;padding:10px 16px;text-align:center;min-width:160px;}
-.fn-lbl{font-family:var(--mono);font-size:8px;color:#2A4030;letter-spacing:0.08em;text-transform:uppercase;margin-bottom:3px;}
-.fn-val{font-family:var(--mono);font-size:12px;color:#6AADA0;}
-.fn-val.orange{color:#FF8C00;}
-.fn-val.green{color:#3ED598;}
-.fn-val.accent{color:#3ED598;font-size:14px;font-weight:500;}
-.fn-note{font-family:var(--mono);font-size:8px;color:#1E3025;margin-top:2px;}
-.conn{width:1px;height:22px;background:#1A2A1E;margin:0 auto;position:relative;}
-.conn::after{content:'';position:absolute;bottom:-4px;left:-3px;border-left:3px solid transparent;border-right:3px solid transparent;border-top:5px solid #2A4030;}
-.branch-wrap{width:100%;position:relative;padding:0 4px;}
-.branch-top-line{position:absolute;top:0;left:50%;transform:translateX(-50%);width:80%;height:1px;background:#1A2A1E;}
-.branch-cols{display:flex;justify-content:space-between;position:relative;z-index:2;}
-.bc{display:flex;flex-direction:column;align-items:center;}
-.bc-stem{width:1px;height:16px;background:#1A2A1E;}
-.bn{background:#0D1A10;border:1px solid #1A2A1E;border-radius:5px;padding:6px 8px;text-align:center;min-width:76px;}
-.bn-lbl{font-family:var(--mono);font-size:7px;color:#2A4030;letter-spacing:0.07em;text-transform:uppercase;margin-bottom:2px;}
-.bn-val{font-family:var(--mono);font-size:10px;}
-.branch-bot-line{position:absolute;bottom:0;left:50%;transform:translateX(-50%);width:80%;height:1px;background:#1A2A1E;}
-.score-node{background:#0A1F12;border:1px solid rgba(62,213,152,0.35);border-radius:8px;padding:14px 20px;text-align:center;min-width:180px;}
-.sn-lbl{font-family:var(--mono);font-size:8px;color:rgba(62,213,152,0.5);letter-spacing:0.12em;text-transform:uppercase;margin-bottom:5px;}
-.sn-score{font-family:var(--serif);font-size:28px;font-weight:900;color:#3ED598;line-height:1;letter-spacing:-0.03em;}
-.sn-verdict{font-family:var(--mono);font-size:9px;color:rgba(62,213,152,0.6);margin-top:4px;letter-spacing:0.06em;}
-.output-node{background:#0D1A10;border:1px solid #FF8C0040;border-radius:6px;padding:10px 16px;text-align:center;min-width:160px;}
+/* FINAL CTA — navy bg, warm headline */
+.final-cta{padding:88px 52px;background:var(--navy);text-align:center;}
+.fcta-inner{max-width:540px;margin:0 auto;}
+.fcta-label{font-family:var(--mono);font-size:10px;font-weight:500;letter-spacing:0.12em;text-transform:uppercase;color:rgba(62,213,152,0.6);margin-bottom:14px;display:flex;align-items:center;justify-content:center;gap:10px;}
+.fcta-label::before,.fcta-label::after{content:'';display:block;width:20px;height:1px;background:rgba(62,213,152,0.3);}
+.fcta-h{font-family:var(--serif);font-size:clamp(30px,4vw,48px);font-weight:700;color:#FFFFFF;letter-spacing:-0.03em;line-height:1.08;margin-bottom:10px;}
+.fcta-h em{font-style:italic;font-weight:300;color:rgba(245,241,232,0.42);}
+.fcta-sub{font-family:var(--body);font-size:14px;color:rgba(255,255,255,0.4);line-height:1.75;margin-bottom:32px;}
+.fcta-form{display:flex;max-width:360px;margin:0 auto 14px;background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.12);border-radius:999px;padding:4px;}
+.fcta-inp{flex:1;background:transparent;border:none;outline:none;padding:10px 16px;font-size:13px;color:#fff;font-family:var(--body);}
+.fcta-inp::placeholder{color:rgba(255,255,255,0.25);}
+.fcta-btn{padding:10px 22px;background:var(--terra);color:#fff;border:none;cursor:pointer;border-radius:999px;font-size:13px;font-weight:600;font-family:var(--sans);white-space:nowrap;}
+.fcta-btn:hover{background:var(--terra2);}
+.fcta-note{font-family:var(--mono);font-size:10px;color:rgba(255,255,255,0.2);letter-spacing:0.04em;}
 
-/* Right col */
-.bb-right{border-left:1px solid #0F1F14;padding:18px 16px;}
-.bb-out-row{margin-bottom:9px;padding-bottom:9px;border-bottom:1px solid #0A1510;}
-.bb-out-row:last-child{border-bottom:none;margin-bottom:0;}
-.bb-ol{font-family:var(--mono);font-size:8px;color:#2A4030;letter-spacing:0.07em;text-transform:uppercase;margin-bottom:3px;}
-.bb-ov{font-family:var(--mono);font-size:12px;}
-.bb-flag-tag{font-family:var(--mono);font-size:8px;padding:2px 6px;border-radius:3px;margin-bottom:3px;display:block;}
-.bft-r{background:rgba(255,59,48,0.08);color:#FF6060;border:1px solid rgba(255,59,48,0.15);}
-.bft-a{background:rgba(255,149,0,0.08);color:#FFAA00;border:1px solid rgba(255,149,0,0.15);}
-.bft-g{background:rgba(62,213,152,0.08);color:#3ED598;border:1px solid rgba(62,213,152,0.15);}
-.bb-footer{background:#0D1410;border-top:1px solid #0F1F14;padding:7px 18px;display:flex;align-items:center;gap:20px;}
-.bb-ft{font-family:var(--mono);font-size:8px;color:#1E3025;letter-spacing:0.07em;}
-.bb-ft.live{color:#3ED598;}
-.bb-ft.warn{color:#FFAA00;}
-
-/* ── PILLARS ─────────────────────── */
-.pillars-sec{background:var(--forest3);padding:72px 52px;}
-.pillars-inner{max-width:1100px;margin:0 auto;}
-.pl-label{font-size:11px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:rgba(245,241,232,0.28);margin-bottom:10px;display:flex;align-items:center;gap:8px;}
-.pl-label::before{content:'';display:block;width:20px;height:1px;background:rgba(245,241,232,0.28);}
-.pl-h2{font-family:var(--serif);font-size:clamp(24px,3vw,38px);font-weight:700;color:#F5F1E8;letter-spacing:-0.03em;line-height:1.1;margin-bottom:44px;}
-.pl-h2 em{font-style:italic;font-weight:300;color:rgba(62,213,152,0.7);}
-.pl-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:rgba(255,255,255,0.05);}
-.pl{background:var(--forest3);padding:30px;transition:background .2s;}
-.pl:hover{background:#0E2318;}
-.pl-num{font-family:var(--mono);font-size:9px;color:rgba(245,241,232,0.2);letter-spacing:0.1em;margin-bottom:16px;}
-.pl-icon{width:32px;height:32px;border-radius:8px;background:rgba(62,213,152,0.1);display:flex;align-items:center;justify-content:center;margin-bottom:12px;}
-.pl-title{font-family:var(--serif);font-size:16px;font-weight:700;color:#F5F1E8;margin-bottom:6px;letter-spacing:-0.01em;}
-.pl-body{font-size:12px;color:rgba(245,241,232,0.38);line-height:1.7;}
-.pl-spark{display:inline-flex;align-items:center;gap:4px;margin-top:12px;font-size:10px;font-weight:500;color:var(--spark);}
-.psd{width:3px;height:3px;border-radius:50%;background:var(--spark);}
-
-/* ── QUOTE ───────────────────────── */
-.quote-sec{padding:64px 52px;background:var(--bg);border-bottom:1px solid var(--rule);}
-.quote-inner{max-width:760px;margin:0 auto;display:grid;grid-template-columns:auto 1fr;gap:40px;align-items:start;}
-.quote-bar{width:3px;background:var(--terra);border-radius:999px;align-self:stretch;}
-.quote-text{font-family:var(--serif);font-size:clamp(17px,2.2vw,23px);font-weight:300;color:var(--ink2, #2C2C2C);line-height:1.45;letter-spacing:-0.01em;font-style:italic;}
-.quote-text strong{font-style:normal;font-weight:700;color:var(--ink);}
-.quote-attr{margin-top:16px;font-size:12px;color:var(--mid);font-weight:500;letter-spacing:0.05em;text-transform:uppercase;}
-
-/* ── CTA ─────────────────────────── */
-.cta-sec{padding:88px 52px;background:var(--forest);text-align:center;}
-.cta-inner{max-width:560px;margin:0 auto;}
-.cta-label{font-size:11px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:rgba(245,241,232,0.35);margin-bottom:14px;display:flex;align-items:center;justify-content:center;gap:8px;}
-.cta-label::before,.cta-label::after{content:'';display:block;width:20px;height:1px;background:rgba(245,241,232,0.25);}
-.cta-h{font-family:var(--serif);font-size:clamp(30px,4vw,46px);font-weight:700;color:#F5F1E8;letter-spacing:-0.035em;line-height:1.1;margin-bottom:12px;}
-.cta-h em{font-style:italic;font-weight:300;color:rgba(245,241,232,0.45);}
-.cta-sub{font-size:15px;font-weight:300;color:rgba(245,241,232,0.45);line-height:1.75;margin-bottom:36px;}
-.cta-form{display:flex;max-width:360px;margin:0 auto 14px;background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.12);border-radius:999px;padding:4px;}
-.cta-inp{flex:1;background:transparent;border:none;outline:none;padding:10px 18px;font-size:13px;color:#F5F1E8;font-family:var(--sans);}
-.cta-inp::placeholder{color:rgba(245,241,232,0.25);}
-.cta-btn{padding:10px 22px;background:var(--terra);color:#fff;border:none;cursor:pointer;border-radius:999px;font-size:13px;font-weight:500;font-family:var(--sans);white-space:nowrap;}
-.cta-note{font-size:11px;color:rgba(245,241,232,0.25);}
-
-/* ── FOOTER ──────────────────────── */
-.footer{border-top:1px solid rgba(245,241,232,0.08);padding:22px 52px;background:var(--forest3);display:flex;align-items:center;justify-content:space-between;}
-.f-logo{font-family:var(--serif);font-size:15px;font-weight:700;color:rgba(245,241,232,0.35);}
+/* FOOTER */
+.footer{background:#060F1C;border-top:1px solid rgba(255,255,255,0.05);padding:20px 52px;display:flex;align-items:center;justify-content:space-between;}
+.f-logo{font-family:var(--serif);font-size:15px;font-weight:700;color:rgba(255,255,255,0.28);}
 .f-links{display:flex;gap:22px;list-style:none;}
-.f-links a{font-size:12px;color:rgba(245,241,232,0.25);text-decoration:none;}
-.f-links a:hover{color:rgba(245,241,232,0.6);}
-.f-copy{font-size:12px;color:rgba(245,241,232,0.18);font-family:var(--mono);}
+.f-links a{font-family:var(--mono);font-size:10px;color:rgba(255,255,255,0.2);text-decoration:none;letter-spacing:0.04em;}
+.f-links a:hover{color:rgba(255,255,255,0.5);}
+.f-copy{font-family:var(--mono);font-size:10px;color:rgba(255,255,255,0.14);letter-spacing:0.04em;}
 </style>
 
 <div>
@@ -244,272 +177,153 @@ body{background:var(--bg);color:var(--ink);font-family:var(--sans);-webkit-font-
 <nav class="nav">
   <a href="#" class="nav-logo">
     <div class="nav-mark">
-      <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-        <path d="M8 2L14 8L8 14L2 8Z" stroke="#F5F1E8" stroke-width="1.5" stroke-linejoin="round"/>
-        <circle cx="8" cy="8" r="2.2" fill="#F5F1E8" opacity="0.55"/>
+      <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+        <path d="M7 1L13 7L7 13L1 7Z" stroke="rgba(245,241,232,0.7)" stroke-width="1.4" stroke-linejoin="round"/>
+        <circle cx="7" cy="7" r="2" fill="rgba(245,241,232,0.45)"/>
       </svg>
     </div>
-    <span class="nw">Akuuva</span>
+    <span class="nav-word">Akuuva</span>
   </a>
   <ul class="nav-links">
     <li><a href="#">Intelligence</a></li>
-    <li><a href="#">The Score</a></li>
-    <li><a href="#">Who We Serve</a></li>
+    <li><a href="#">Reports</a></li>
+    <li><a href="#">Pricing</a></li>
   </ul>
   <a href="mailto:support@akuuva.com" class="nav-cta">Get your report</a>
 </nav>
 
 <!-- HERO -->
 <div class="hero">
-<div class="hero-inner">
-  <div>
-    <div class="hero-kicker"><div class="kd"></div>Land Intelligence · India</div>
-    <h1 class="hero-h1">The credit bureau<br>for Indian land.</h1>
-    <div class="hero-h1-sub">One risk score. Every parcel.<br>The same way CIBIL scores a borrower.</div>
-    <div class="hero-rule"></div>
-    <p class="hero-p">Banks and buyers make billion-rupee land decisions based on photocopied documents and manual opinion letters. Akuuva ends that — one standardised score, generated in hours, trusted the way CIBIL is trusted.</p>
-    <div class="hero-btns">
-      <a href="mailto:support@akuuva.com" class="btn-terra">Get your report</a>
-      <a href="#" class="btn-ghost">See how it works</a>
-    </div>
-    <div class="hero-stats">
-      <div class="hstat"><span class="hstat-n">0–100</span><span class="hstat-l">ALR score per parcel</span></div>
-      <div class="hstat"><span class="hstat-n">2–4 hr</span><span class="hstat-l">vs. 2–4 week manual</span></div>
-      <div class="hstat"><span class="hstat-n">3 types</span><span class="hstat-l">Agri · Comm · Resi</span></div>
-      <div class="hstat" style="border-right:none"><span class="hstat-n">40+</span><span class="hstat-l">Risk signals scored</span></div>
-    </div>
-  </div>
-
-  <!-- HERO SCORE CARD -->
-  <div class="hero-score-card">
-    <div class="hsc-header">
-      <div class="hsc-top-row">
-        <div class="hsc-badge"><div class="hsc-live-dot"></div>Live Report</div>
-        <div class="hsc-id">LIR-2024-0041</div>
+  <div class="hero-inner">
+    <div>
+      <div class="hero-eyebrow"><div class="hl"></div>Institutional Land Due Diligence</div>
+      <h1 class="hero-h1">Title Intelligence,<br>Quantified.</h1>
+      <div class="hero-sub-italic">The credit bureau for Indian land.</div>
+      <div class="hero-rule"></div>
+      <p class="hero-p">Replace weeks of manual legal searches with instant, advocate-verified reports. <strong>10× faster. 60% more cost-effective.</strong> Trusted by BFSI and PE funds.</p>
+      <div class="hero-btns">
+        <a href="#" class="btn-primary">Analyze your first parcel — free</a>
+        <a href="#" class="btn-secondary">View sample report</a>
       </div>
-      <div class="hsc-parcel">Agricultural Land Parcel · 87 acres</div>
-      <div class="hsc-sub">INDIA · VERIFIED · APR 2026</div>
-    </div>
-
-    <div class="hsc-score-row">
-      <div class="hsc-score-big">
-        <div class="hsc-score-label">Akuuva Land Rating</div>
-        <div><span class="hsc-score-num">72</span><span class="hsc-score-denom">/100</span></div>
-        <div style="margin-top:10px"><div class="hsc-verdict"><div class="hsc-verdict-dot"></div>Acquire</div></div>
-      </div>
-      <div class="hsc-pillar-mini">
-        <div class="hpm-row"><div class="hpm-name">Legal</div><div class="hpm-track"><div class="hpm-fill" style="width:72%"></div></div><div class="hpm-val">72</div></div>
-        <div class="hpm-row"><div class="hpm-name">Encumb.</div><div class="hpm-track"><div class="hpm-fill" style="width:48%;background:rgba(255,149,0,0.6)"></div></div><div class="hpm-val">48</div></div>
-        <div class="hpm-row"><div class="hpm-name">Infra</div><div class="hpm-track"><div class="hpm-fill" style="width:81%"></div></div><div class="hpm-val">81</div></div>
-        <div class="hpm-row"><div class="hpm-name">Market</div><div class="hpm-track"><div class="hpm-fill" style="width:74%"></div></div><div class="hpm-val">74</div></div>
-        <div class="hpm-row"><div class="hpm-name">Yield</div><div class="hpm-track"><div class="hpm-fill" style="width:66%"></div></div><div class="hpm-val">66</div></div>
+      <div class="hero-stats">
+        <div class="hstat"><span class="hstat-n">603</span><span class="hstat-l">Sample ALR score</span></div>
+        <div class="hstat"><span class="hstat-n">2–4hr</span><span class="hstat-l">vs. 15–21 days</span></div>
+        <div class="hstat"><span class="hstat-n">40+</span><span class="hstat-l">Risk signals</span></div>
+        <div class="hstat"><span class="hstat-n">48hr</span><span class="hstat-l">Advocate SLA</span></div>
       </div>
     </div>
 
-    <div class="hsc-flags">
-      <div class="hsc-flag hf-r">
-        <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M6 2V6.5M6 8.5V9" stroke="#FF8080" stroke-width="1.4" stroke-linecap="round"/></svg>
-        12 active bank mortgages detected
+    <!-- SCORE CARD -->
+    <div class="score-card">
+      <div class="sc-hdr">
+        <div>
+          <div class="sc-eyebrow">Title Confidence Score</div>
+          <div class="sc-parcel">Survey No. 42/3A · Gurugram</div>
+        </div>
+        <div class="sc-live"><div class="sc-live-dot"></div>Live · 2 min ago</div>
       </div>
-      <div class="hsc-flag hf-a">
-        <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M6 2L11 10H1L6 2Z" stroke="#FFA940" stroke-width="1.2" stroke-linejoin="round"/></svg>
-        Mutation gap: 2019–2021 — verify required
-      </div>
-      <div class="hsc-flag hf-g">
-        <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 6L4.5 8.5L10 3" stroke="#3ED598" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        Title chain verified · 4 clean transfers
-      </div>
-    </div>
 
-    <div class="hsc-proj">
-      <div class="hsc-proj-lbl">5-yr income projection</div>
-      <div class="hsc-proj-val">₹56L / yr</div>
-    </div>
-  </div>
-</div>
-</div>
+      <div class="sc-score-row">
+        <div>
+          <div><span class="sc-num">603</span><span class="sc-den">/850</span></div>
+          <div class="sc-lbl">Akuuva Land Rating</div>
+        </div>
+        <div class="sc-bar-col">
+          <div class="sc-bar-lbl">Confidence level</div>
+          <div class="sc-bar-track"><div class="sc-bar-fill"></div></div>
+          <div class="sc-bar-pct">70.9% — Good Standing</div>
+        </div>
+      </div>
 
-<!-- CIBIL ANALOGY + WHO WE SERVE -->
-<div class="cibil-sec">
-  <div class="cibil-inner">
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:start;">
-      <div>
-        <div class="sec-label">The Analogy</div>
-        <h2 class="sec-h2">CIBIL scores borrowers.<br><em>Akuuva scores land.</em></h2>
-        <p class="sec-sub">India has a mature credit scoring infrastructure for people. It has nothing equivalent for the land they are buying. We are building that missing layer.</p>
-        <div class="analogy-grid">
-          <div class="analogy-card">
-            <div class="ac-header" style="background:#EEF3FF;">
-              <div class="ac-tag cibil">CIBIL · Borrower</div>
-              <div class="ac-title">Person Credit Score</div>
-            </div>
-            <div class="ac-body">
-              <div class="ac-row"><div class="ac-dot cibil"></div><div class="ac-text">Repayment history from banks</div></div>
-              <div class="ac-row"><div class="ac-dot cibil"></div><div class="ac-text">Debt-to-income and utilisation</div></div>
-              <div class="ac-row"><div class="ac-dot cibil"></div><div class="ac-text">One 300–900 score, lender-ready</div></div>
-            </div>
+      <div class="sc-status">
+        <div class="sc-si"><div class="sc-sk">Encumbrances</div><div class="sc-sv ok">None detected</div></div>
+        <div class="sc-si"><div class="sc-sk">Litigation</div><div class="sc-sv ok">Clear</div></div>
+        <div class="sc-si"><div class="sc-sk">History Depth</div><div class="sc-sv">30 years</div></div>
+        <div class="sc-si"><div class="sc-sk">Mutation Status</div><div class="sc-sv warn">Pending</div></div>
+      </div>
+
+      <div class="sc-adv">
+        <div class="sc-adv-inner">
+          <div class="sc-adv-icon">
+            <svg width="15" height="15" viewBox="0 0 15 15" fill="none">
+              <rect x="3.5" y="1.5" width="8" height="10" rx="1" stroke="#1A7A5E" stroke-width="1.3"/>
+              <path d="M3.5 11.5L1.5 13.5H13.5L11.5 11.5" stroke="#1A7A5E" stroke-width="1.3" stroke-linejoin="round"/>
+              <line x1="5.5" y1="5" x2="9.5" y2="5" stroke="#1A7A5E" stroke-width="1.2" stroke-linecap="round"/>
+              <line x1="5.5" y1="7" x2="9.5" y2="7" stroke="#1A7A5E" stroke-width="1.2" stroke-linecap="round"/>
+            </svg>
           </div>
-          <div class="analogy-vs"><div class="vs-circle">vs</div></div>
-          <div class="analogy-card">
-            <div class="ac-header" style="background:#E8F5EE;">
-              <div class="ac-tag akuuva">Akuuva · Land parcel</div>
-              <div class="ac-title">Land Risk Score</div>
-            </div>
-            <div class="ac-body">
-              <div class="ac-row"><div class="ac-dot akuuva"></div><div class="ac-text">Title chain from government records</div></div>
-              <div class="ac-row"><div class="ac-dot akuuva"></div><div class="ac-text">Encumbrance, litigation, mutation</div></div>
-              <div class="ac-row"><div class="ac-dot akuuva"></div><div class="ac-text">One 0–100 ALR score, lender-ready</div></div>
+          <div>
+            <div class="sc-adv-name">Adv. S. Agarwal</div>
+            <div class="sc-adv-detail">Senior Advocate, Bar Council of Delhi<br>Verified: 14 Apr 2025 · Enr. No. D/1284/98</div>
+            <div class="sc-adv-badge">
+              <svg width="11" height="11" viewBox="0 0 11 11" fill="none"><circle cx="5.5" cy="5.5" r="4.5" stroke="#1A7A5E" stroke-width="1.1"/><path d="M3 5.5L5 7.5L8.5 3.5" stroke="#1A7A5E" stroke-width="1.1" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              Advocate Co-Signature Verified
             </div>
           </div>
         </div>
       </div>
-      <div>
-        <div class="sec-label">Who We Serve</div>
-        <h2 class="sec-h2" style="margin-bottom:8px">Built for institutions<br><em>moving real capital.</em></h2>
-        <p class="sec-sub">Agricultural fields, commercial corridors, residential townships — one platform, one score standard.</p>
-        <div class="who-grid">
-          <div class="wc">
-            <div class="wc-stripe f"></div>
-            <div class="wc-tag">NBFCs & HFCs</div>
-            <div class="wc-h">Land-backed lenders</div>
-            <p class="wc-p">Underwrite land collateral the way you underwrite borrowers — with a standardised, comparable score instead of a one-off legal opinion.</p>
-            <ul class="wc-list f">
-              <li>ALR score per parcel for credit decisions</li>
-              <li>Encumbrance flags before disbursement</li>
-              <li>Portfolio-level consistency</li>
-            </ul>
-          </div>
-          <div class="wc">
-            <div class="wc-stripe t"></div>
-            <div class="wc-tag">Real Estate Developers</div>
-            <div class="wc-h">Land acquirers</div>
-            <p class="wc-p">Know exactly what you are buying before negotiations begin — title defects, open mortgages, and regulatory gaps, all surfaced upfront.</p>
-            <ul class="wc-list t">
-              <li>Pre-acquisition intelligence brief</li>
-              <li>5-year value and yield projections</li>
-              <li>Cross-site comparison scoring</li>
-            </ul>
-          </div>
-        </div>
+
+      <div class="sc-foot">
+        <span class="sc-foot-id">AKV-2025-04-0391</span>
+        <span class="sc-foot-ts">Last scrape: 2 min ago</span>
       </div>
     </div>
   </div>
 </div>
 
-<!-- BLOOMBERG FLOW -->
-<div class="flow-sec">
-  <div class="flow-inner">
-    <div class="flow-header">
-      <div class="sec-label">Intelligence Architecture</div>
-      <h2 class="sec-h2">From raw document<br><em>to risk score — in hours.</em></h2>
-      <p style="font-size:14px;color:var(--mid);max-width:420px;margin-top:8px;font-weight:300;line-height:1.7">How Akuuva processes a land parcel through its six-pillar intelligence engine.</p>
-    </div>
-    <div class="bb">
-      <div class="bb-bar">
-        <div class="bb-brand">AKUUVA INTELLIGENCE TERMINAL</div>
-        <div class="bb-title-bar">LIR PROCESSING PIPELINE · LIVE</div>
-        <div class="bb-time">APR 15 2026 · 17:42 IST</div>
+<!-- BENTO -->
+<div class="bento-sec">
+  <div class="bento-inner">
+    <div class="sec-label">How it works</div>
+    <h2 class="sec-h2">Three pillars. <em>One trusted report.</em></h2>
+    <div class="bento-grid">
+      <div class="bcard">
+        <div class="bcard-tag">The Engine</div>
+        <div class="bcard-title">Digitized Title Search</div>
+        <div class="bcard-body">Automated scraping of historical land records, mutation registers, and encumbrance filings across state revenue portals.</div>
+        <div class="bcard-meta">↳ Cross-references 4 govt. databases per parcel</div>
+        <div class="bcard-tip">Akuuva's scraper runs every 4 hours against the IGRS portal, Dharitri, and state sub-registrar records, cross-referencing mutation numbers and khasra entries.</div>
       </div>
-      <div class="bb-layout">
-        <!-- LEFT -->
-        <div class="bb-left">
-          <div class="bb-col-hdr">Input</div>
-          <div class="bb-field"><div class="bb-fl">Parcel type</div><div class="bb-fv hi">AGRICULTURAL</div></div>
-          <div class="bb-field"><div class="bb-fl">Area</div><div class="bb-fv">87.0 ACRES</div></div>
-          <div class="bb-field"><div class="bb-fl">Jurisdiction</div><div class="bb-fv">INDIA</div></div>
-          <div class="bb-field"><div class="bb-fl">Doc format</div><div class="bb-fv">PDF · SCAN</div></div>
-          <div class="bb-field"><div class="bb-fl">Language</div><div class="bb-fv">KN / HI / EN</div></div>
-          <div class="bb-field"><div class="bb-fl">Stage</div><div class="bb-fv warn">RISK ENGINE</div></div>
-          <div class="bb-upload-btn">▲ UPLOAD DOCUMENT</div>
-          <div class="bb-status-row">
-            <div class="bb-status-dot"><div class="bb-sdot"></div>LIVE · 2h 14m</div>
-          </div>
-        </div>
-
-        <!-- CENTRE -->
-        <div class="bb-centre">
-          <div class="fn"><div class="fn-lbl">Stage 01</div><div class="fn-val orange">Document Ingest</div><div class="fn-note">EC · Sale Deed · RTC · Jamabandi</div></div>
-          <div class="conn"></div>
-          <div class="fn"><div class="fn-lbl">Stage 02</div><div class="fn-val orange">LLM OCR + Extraction</div><div class="fn-note">Bilingual · 89% accuracy · 10+ fields</div></div>
-          <div class="conn"></div>
-
-          <!-- Branch -->
-          <div class="branch-wrap" style="height:80px;position:relative;">
-            <div class="branch-top-line"></div>
-            <div class="branch-cols" style="padding-top:0;">
-              <div class="bc"><div class="bc-stem"></div><div class="bn"><div class="bn-lbl">Pillar A</div><div class="bn-val" style="color:#FF8C00">Title</div></div></div>
-              <div class="bc"><div class="bc-stem"></div><div class="bn"><div class="bn-lbl">Pillar B</div><div class="bn-val" style="color:#FF6060">Encumb.</div></div></div>
-              <div class="bc"><div class="bc-stem"></div><div class="bn"><div class="bn-lbl">Pillar C</div><div class="bn-val" style="color:#3ED598">Infra</div></div></div>
-              <div class="bc"><div class="bc-stem"></div><div class="bn"><div class="bn-lbl">Pillar D</div><div class="bn-val" style="color:#FFAA00">Market</div></div></div>
-              <div class="bc"><div class="bc-stem"></div><div class="bn"><div class="bn-lbl">Pillar E</div><div class="bn-val" style="color:#3ED598">Yield</div></div></div>
-            </div>
-            <div class="branch-bot-line"></div>
-          </div>
-
-          <div class="conn"></div>
-          <div class="fn"><div class="fn-lbl">Stage 03</div><div class="fn-val orange">Risk Engine</div><div class="fn-note">40+ signals · weighted composite</div></div>
-          <div class="conn"></div>
-          <div class="score-node"><div class="sn-lbl">ALR Output</div><div class="sn-score">72<span style="font-family:var(--mono);font-size:14px;font-weight:400;color:rgba(62,213,152,0.4)">/100</span></div><div class="sn-verdict">VERDICT: ACQUIRE</div></div>
-          <div class="conn"></div>
-          <div class="output-node"><div class="fn-lbl">Deliverable</div><div class="fn-val orange">Land Intelligence Report</div><div class="fn-note">PDF · JSON · API · 2–4 hrs</div></div>
-        </div>
-
-        <!-- RIGHT -->
-        <div class="bb-right">
-          <div class="bb-col-hdr">Output</div>
-          <div class="bb-out-row"><div class="bb-ol">ALR Score</div><div class="bb-ov" style="color:#3ED598;font-size:20px;font-family:var(--serif)">72.4</div></div>
-          <div class="bb-out-row"><div class="bb-ol">Verdict</div><div class="bb-ov" style="color:#3ED598">ACQUIRE</div></div>
-          <div class="bb-out-row"><div class="bb-ol">Confidence</div><div class="bb-ov" style="color:#8AADA0">89.1%</div></div>
-          <div class="bb-out-row">
-            <div class="bb-ol">Flags</div>
-            <span class="bb-flag-tag bft-r">⚑ 12 MORTGAGES</span>
-            <span class="bb-flag-tag bft-a">△ MUTATION GAP</span>
-            <span class="bb-flag-tag bft-g">✓ TITLE CLEAN</span>
-          </div>
-          <div class="bb-out-row"><div class="bb-ol">5Y Projection</div><div class="bb-ov" style="color:#3ED598">₹56L/yr</div></div>
-          <div class="bb-out-row"><div class="bb-ol">Duration</div><div class="bb-ov" style="color:#8AADA0">2h 14m</div></div>
-          <div class="bb-out-row"><div class="bb-ol">Report ID</div><div class="bb-ov" style="color:#2A4030;font-size:9px">LIR-2024-0041</div></div>
-        </div>
+      <div class="bcard">
+        <div class="bcard-tag">The Network</div>
+        <div class="bcard-title">Advocate Verification</div>
+        <div class="bcard-body">Every report is co-signed by a Senior Advocate registered with the Bar Council of Delhi, providing legal standing.</div>
+        <div class="bcard-meta">↳ 48-hr SLA on advocate co-signature</div>
+        <div class="bcard-tip">Our advocate panel holds active Bar Council enrollments. Every report carries the advocate's enrollment number and digital signature, creating a legally auditable trail.</div>
       </div>
-      <div class="bb-footer">
-        <div class="bb-ft live">● LIVE</div>
-        <div class="bb-ft">STAGE: RISK ENGINE</div>
-        <div class="bb-ft warn">△ 12 FLAGS</div>
-        <div class="bb-ft">ETA: 14 MIN</div>
-        <div class="bb-ft" style="margin-left:auto">AKUUVA LIR v2.4</div>
+      <div class="bcard">
+        <div class="bcard-tag">The Safety Net</div>
+        <div class="bcard-title">Portfolio Watch</div>
+        <div class="bcard-body">24/7 monitoring for new litigation filings, encumbrance registrations, or regulatory changes on acquired land.</div>
+        <div class="bcard-meta">↳ Alerts delivered within 15 minutes of filing</div>
+        <div class="bcard-tip">Portfolio Watch monitors survey numbers against new EC filings, court case databases (eCourts API), and municipal record changes in real time.</div>
       </div>
     </div>
   </div>
 </div>
 
-<!-- PILLARS -->
-<div class="pillars-sec">
-  <div class="pillars-inner">
-    <div class="pl-label">Core intelligence</div>
-    <h2 class="pl-h2">Three things Akuuva<br>answers <em>definitively.</em></h2>
-    <div class="pl-grid">
-      <div class="pl">
-        <div class="pl-num">01</div>
-        <div class="pl-icon"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="7" cy="7" r="5" stroke="#3ED598" stroke-width="1.4"/><path d="M11 11L14.5 14.5" stroke="#3ED598" stroke-width="1.4" stroke-linecap="round"/></svg></div>
-        <div class="pl-title">Know before you invest</div>
-        <p class="pl-body">Complete title chain, encumbrances, and litigation history — surfaced from government records before a single rupee is committed.</p>
-        <div class="pl-spark"><div class="psd"></div>Pre-acquisition clarity</div>
-      </div>
-      <div class="pl">
-        <div class="pl-num">02</div>
-        <div class="pl-icon"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M8 2L15 13H1L8 2Z" stroke="#3ED598" stroke-width="1.4" stroke-linejoin="round"/><line x1="8" y1="7" x2="8" y2="9.5" stroke="#3ED598" stroke-width="1.4" stroke-linecap="round"/><circle cx="8" cy="11" r=".7" fill="#3ED598"/></svg></div>
-        <div class="pl-title">Detect what is hidden</div>
-        <p class="pl-body">Open mortgages, mutation gaps, litigation exposure — Akuuva finds what photocopied LSRs miss and what manual advocates overlook.</p>
-        <div class="pl-spark"><div class="psd"></div>40+ risk signals</div>
-      </div>
-      <div class="pl">
-        <div class="pl-num">03</div>
-        <div class="pl-icon"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M2 12L5.5 7.5L9 10L13 4" stroke="#3ED598" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/><circle cx="13" cy="4" r="1.8" stroke="#3ED598" stroke-width="1.2"/></svg></div>
-        <div class="pl-title">Decide with confidence</div>
-        <p class="pl-body">One ALR score. One verdict — Acquire, Caution, or Do Not Acquire. The same decisive clarity CIBIL gives lenders about borrowers.</p>
-        <div class="pl-spark"><div class="psd"></div>Clear, decisive output</div>
-      </div>
-    </div>
+<!-- DELTA TABLE -->
+<div class="delta-sec">
+  <div class="delta-inner">
+    <div class="sec-label">Why Akuuva</div>
+    <h2 class="sec-h2">The order-of-magnitude <em>difference.</em></h2>
+    <table class="dtable">
+      <thead>
+        <tr>
+          <th class="metric" style="width:22%">Metric</th>
+          <th class="trad" style="width:39%">Traditional Law Firms</th>
+          <th class="akuuva" style="width:39%">Akuuva</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td class="metric">Turnaround</td><td class="trad">15–21 working days</td><td class="akuuva">2–4 working days</td></tr>
+        <tr><td class="metric">Output Format</td><td class="trad">Qualitative PDF opinions</td><td class="akuuva">Quantitative Risk Scoring (0–850)</td></tr>
+        <tr><td class="metric">Pricing Model</td><td class="trad">High hourly / retainer fees</td><td class="akuuva">Fixed, transparent per-parcel pricing</td></tr>
+        <tr><td class="metric">Reliability</td><td class="trad">Human error prone</td><td class="akuuva">Data cross-referenced, advocate co-signed</td></tr>
+        <tr><td class="metric">Monitoring</td><td class="trad">None — point-in-time only</td><td class="akuuva">24/7 Portfolio Watch alerts</td></tr>
+        <tr><td class="metric">Legal Standing</td><td class="trad">Varies by advocate</td><td class="akuuva">Bar Council of Delhi co-signature on every report</td></tr>
+      </tbody>
+    </table>
   </div>
 </div>
 
@@ -524,17 +338,17 @@ body{background:var(--bg);color:var(--ink);font-family:var(--sans);-webkit-font-
   </div>
 </div>
 
-<!-- CTA -->
-<div class="cta-sec">
-  <div class="cta-inner">
-    <div class="cta-label">Get started</div>
-    <h2 class="cta-h">Know the land<br><em>before you move.</em></h2>
-    <p class="cta-sub">Share your email and we will be in touch within 24 hours with everything you need to request your first report.</p>
-    <div class="cta-form">
-      <input class="cta-inp" type="email" placeholder="your@email.com" id="ce">
-      <button class="cta-btn" onclick="(function(){var e=document.getElementById('ce'),n=document.getElementById('cn');if(!e.value.includes('@')){n.textContent='Please enter a valid email.';n.style.color='#ff9980';return;}n.textContent='Received — we will be in touch within 24 hours.';n.style.color='var(--spark)';e.value='';})()">Get your report</button>
+<!-- FINAL CTA -->
+<div class="final-cta">
+  <div class="fcta-inner">
+    <div class="fcta-label">Get started</div>
+    <h2 class="fcta-h">Know the land<br><em>before you move.</em></h2>
+    <p class="fcta-sub">One report. Advocate-verified. Delivered in days, not weeks. No retainer, no ambiguity.</p>
+    <div class="fcta-form">
+      <input class="fcta-inp" type="email" placeholder="your@email.com" id="ce">
+      <button class="fcta-btn" onclick="(function(){var e=document.getElementById('ce'),n=document.getElementById('cn');if(!e.value.includes('@')){n.textContent='Please enter a valid email.';n.style.color='#ff9980';return;}n.textContent='Received — we will be in touch within 24 hours.';n.style.color='#3ED598';e.value='';})()">Get your report</button>
     </div>
-    <div class="cta-note" id="cn">No commitment · support@akuuva.com · Response within 24 hours</div>
+    <div class="fcta-note" id="cn">No commitment · support@akuuva.com · Response within 24 hours</div>
   </div>
 </div>
 
@@ -544,7 +358,7 @@ body{background:var(--bg);color:var(--ink);font-family:var(--sans);-webkit-font-
   <ul class="f-links">
     <li><a href="mailto:support@akuuva.com">support@akuuva.com</a></li>
     <li><a href="#">LinkedIn</a></li>
-    <li><a href="#">Twitter / X</a></li>
+    <li><a href="#">Privacy</a></li>
   </ul>
   <div class="f-copy">© 2026 Akuuva</div>
 </div>
