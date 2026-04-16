@@ -88,9 +88,44 @@ export default function Hero() {
         </div>
       </div>
 
-      {/* Watermark */}
-      <div aria-hidden="true" style={{ position: 'absolute', bottom: -40, right: -40, width: 420, height: 420, opacity: 0.04, pointerEvents: 'none', userSelect: 'none' }}>
+      {/* Mark watermark — bottom right */}
+      <div aria-hidden="true" style={{
+        position: 'absolute', bottom: -60, right: -60,
+        width: 480, height: 480,
+        opacity: 0.06,
+        pointerEvents: 'none', userSelect: 'none',
+      }}>
         <img src="/assets/logo-mark-black.svg" alt="" style={{ width: '100%', height: '100%', objectFit: 'contain', filter: 'invert(1)' }} />
+      </div>
+
+      {/* AKUUVA wordmark watermark — large, centered behind content */}
+      <div aria-hidden="true" style={{
+        position: 'absolute',
+        bottom: 0,
+        left: '50%',
+        transform: 'translateX(-50%)',
+        width: '90%',
+        maxWidth: 900,
+        overflow: 'hidden',
+        height: 120,
+        opacity: 0.035,
+        pointerEvents: 'none',
+        userSelect: 'none',
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+      }}>
+        {/* Render the 500×500 wordmark PNG at massive scale cropped to just the text band */}
+        <img
+          src="/assets/logo-name.png"
+          alt=""
+          style={{
+            height: 500,
+            width: 'auto',
+            filter: 'invert(1)',
+            flexShrink: 0,
+          }}
+        />
       </div>
 
       <style>{`
