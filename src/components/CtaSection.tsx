@@ -64,7 +64,7 @@ export default function CtaSection() {
             lineHeight: 1.75,
             marginBottom: 32,
           }}>
-            One report. Advocate-verified. Delivered in days, not weeks. No retainer, no ambiguity.
+            One report. Advocate-verified. Delivered in 24–48 hours, not weeks. No retainer, no ambiguity.
           </p>
 
           <form

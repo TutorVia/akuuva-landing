@@ -10,7 +10,7 @@ interface Row {
 }
 
 const data: Row[] = [
-  { key: '1', metric: 'Turnaround',    trad: '15–21 working days',              akuuva: '2–4 working days' },
+  { key: '1', metric: 'Turnaround',    trad: '15–21 working days',              akuuva: '24–48 hours' },
   { key: '2', metric: 'Output Format', trad: 'Qualitative PDF opinions',         akuuva: 'Quantitative Risk Scoring (0–850)' },
   { key: '3', metric: 'Pricing Model', trad: 'High hourly / retainer fees',      akuuva: 'Fixed, transparent per-parcel pricing' },
   { key: '4', metric: 'Reliability',   trad: 'Human error prone',               akuuva: 'Data cross-referenced, advocate co-signed' },
