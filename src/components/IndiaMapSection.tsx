@@ -1,6 +1,10 @@
 import { useState, useCallback, useRef } from 'react'
 import { motion, useReducedMotion, useInView } from 'framer-motion'
-import india from '@svg-maps/india'
+// @svg-maps/india ships its own .d.ts but depends on svg-maps__common for the Map type.
+// We declare the shape inline to avoid an uninstalled peer-type dependency.
+interface IndiaMap { viewBox: string; locations: Array<{ id: string; name: string; path: string }> }
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+const india = (require('@svg-maps/india').default) as IndiaMap
 
 interface StateDoc {
   name: string

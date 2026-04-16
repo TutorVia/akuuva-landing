@@ -1,4 +1,4 @@
-import { motion, AnimatePresence, useReducedMotion, useInView } from 'framer-motion'
+import { motion, useReducedMotion, useInView } from 'framer-motion'
 import { useRef } from 'react'
 
 // Hub-and-spoke nodes
