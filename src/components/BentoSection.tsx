@@ -43,8 +43,8 @@ export default function BentoSection() {
               className="bcard"
               initial={{ opacity: shouldReduce ? 1 : 0, y: shouldReduce ? 0 : 16 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: '-40px' }}
-              transition={{ duration: 0.35, delay: i * 0.1, ease: [0.0, 0.0, 0.2, 1] }}
+              viewport={{ once: true, amount: 0 }}
+              transition={{ duration: 0.35, delay: i * 0.1, ease: [0, 0, 0.2, 1] }}
               whileHover={{ y: shouldReduce ? 0 : -2, boxShadow: '0 6px 28px rgba(10,25,47,0.1)' }}
             >
               <div style={{ fontFamily: 'var(--mono)', fontSize: 9, fontWeight: 500, letterSpacing: '0.1em', textTransform: 'uppercase', color: 'var(--emerald)', marginBottom: 10 }}>

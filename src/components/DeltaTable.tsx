@@ -79,7 +79,7 @@ export default function DeltaTable() {
         <motion.div
           initial={{ opacity: shouldReduce ? 1 : 0, y: shouldReduce ? 0 : 16 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: '-40px' }}
+          viewport={{ once: true, amount: 0 }}
           transition={{ duration: 0.4, ease: [0.0, 0.0, 0.2, 1] }}
           style={{ overflowX: 'auto' }}
         >

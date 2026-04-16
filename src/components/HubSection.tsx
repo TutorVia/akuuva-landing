@@ -51,7 +51,7 @@ export default function HubSection() {
                 className="hub-input-node"
                 initial={{ opacity: shouldReduce ? 1 : 0, x: shouldReduce ? 0 : -20 }}
                 whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true, margin: '-40px' }}
+                viewport={{ once: true, amount: 0 }}
                 transition={{ duration: 0.4, delay: i * 0.07, ease: [0.0, 0.0, 0.2, 1] }}
               >
                 <div style={{
@@ -154,7 +154,7 @@ export default function HubSection() {
                 className="hub-output-node"
                 initial={{ opacity: shouldReduce ? 1 : 0, x: shouldReduce ? 0 : 20 }}
                 whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true, margin: '-40px' }}
+                viewport={{ once: true, amount: 0 }}
                 transition={{ duration: 0.4, delay: i * 0.07, ease: [0.0, 0.0, 0.2, 1] }}
               >
                 {/* Arrow */}
