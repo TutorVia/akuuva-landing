@@ -14,22 +14,21 @@ export default function Footer() {
         flexWrap: 'wrap',
         gap: 16,
       }}>
-        <div style={{ display: 'flex', alignItems: 'center', gap: 2, lineHeight: 0 }}>
-          <div style={{ height: 22, overflow: 'hidden', display: 'flex', alignItems: 'center' }}>
-            <img
-              src="/assets/logo-mark-black.png"
-              alt=""
-              aria-hidden="true"
-              style={{ display: 'block', height: 38, width: 'auto', marginTop: -6, opacity: 0.3, filter: 'invert(1)' }}
-            />
-          </div>
-          <div style={{ height: 14, overflow: 'hidden', display: 'flex', alignItems: 'center' }}>
-            <img
-              src="/assets/logo-name.png"
-              alt="Akuuva"
-              style={{ display: 'block', height: 46, width: 'auto', opacity: 0.22, filter: 'invert(1)' }}
-            />
-          </div>
+        <div style={{ display: 'flex', alignItems: 'center', gap: 7, lineHeight: 0 }}>
+          <img
+            src="/assets/logo-mark-black.svg"
+            alt=""
+            aria-hidden="true"
+            width={28}
+            height={28}
+            style={{ display: 'block', opacity: 0.28, filter: 'invert(1)' }}
+          />
+          <img
+            src="/assets/logo-name.svg"
+            alt="Akuuva"
+            height={17}
+            style={{ display: 'block', width: 'auto', opacity: 0.22, filter: 'invert(1)' }}
+          />
         </div>
         <ul style={{ display: 'flex', gap: 22, listStyle: 'none', flexWrap: 'wrap' }}>
           <li>

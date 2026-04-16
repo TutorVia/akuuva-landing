@@ -26,37 +26,22 @@ export default function Nav() {
           justifyContent: 'space-between',
         }}
       >
-        <a href="/" style={{ display: 'flex', alignItems: 'center', gap: 9, textDecoration: 'none' }}>
-          {/* Mark: 2000×2000 SVG, visual content fills the center ~40%.
-              Render oversized and crop to show only the mark. */}
-          <div style={{ width: 34, height: 34, overflow: 'hidden', flexShrink: 0, position: 'relative' }}>
-            <img
-              src="/assets/logo-mark-black.svg"
-              alt=""
-              aria-hidden="true"
-              style={{
-                display: 'block',
-                width: 85,
-                height: 85,
-                position: 'absolute',
-                top: '50%',
-                left: '50%',
-                transform: 'translate(-50%, -50%)',
-                mixBlendMode: 'multiply',
-              }}
-            />
-          </div>
-          {/* Brand name as real text — crisp, scalable, no cropping needed */}
-          <span style={{
-            fontFamily: 'var(--body)',
-            fontSize: 20,
-            fontWeight: 800,
-            color: 'var(--ink)',
-            letterSpacing: '-0.5px',
-            lineHeight: 1,
-          }}>
-            Akuuva
-          </span>
+        {/* Logo: mark + wordmark SVGs, both now have viewBox crop baked in */}
+        <a href="/" style={{ display: 'flex', alignItems: 'center', gap: 8, textDecoration: 'none', lineHeight: 0 }}>
+          <img
+            src="/assets/logo-mark-black.svg"
+            alt=""
+            aria-hidden="true"
+            width={36}
+            height={36}
+            style={{ display: 'block', mixBlendMode: 'multiply' }}
+          />
+          <img
+            src="/assets/logo-name.svg"
+            alt="Akuuva"
+            height={22}
+            style={{ display: 'block', width: 'auto', mixBlendMode: 'multiply' }}
+          />
         </a>
 
         {/* Desktop nav links */}
