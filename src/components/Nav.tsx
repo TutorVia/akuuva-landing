@@ -26,21 +26,17 @@ export default function Nav() {
           justifyContent: 'space-between',
         }}
       >
-        {/* Logo: mark + wordmark SVGs, both now have viewBox crop baked in */}
-        <a href="/" style={{ display: 'flex', alignItems: 'center', gap: 8, textDecoration: 'none', lineHeight: 0 }}>
+        <a href="/" style={{ display: 'flex', alignItems: 'center', gap: 10, textDecoration: 'none', lineHeight: 0 }}>
           <img
             src="/assets/logo-mark-black.svg"
             alt=""
             aria-hidden="true"
-            width={36}
-            height={36}
-            style={{ display: 'block', mixBlendMode: 'multiply' }}
+            style={{ display: 'block', height: 28, width: 'auto' }}
           />
           <img
             src="/assets/logo-name.svg"
             alt="Akuuva"
-            height={22}
-            style={{ display: 'block', width: 'auto', mixBlendMode: 'multiply' }}
+            style={{ display: 'block', height: 28, width: 'auto' }}
           />
         </a>
 
