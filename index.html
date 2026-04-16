@@ -13,6 +13,7 @@
 <body>
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;}
 :root{
   /* Backgrounds */
   --bg:#F5F1E8;
@@ -94,10 +95,8 @@ body{background:var(--bg);color:var(--ink);font-family:var(--body);-webkit-font-
 
 /* NAV — warm bg, navy text, terra CTA */
 .nav{background:rgba(245,241,232,0.95);backdrop-filter:blur(18px);border-bottom:1px solid var(--rule);padding:0 var(--sp-2xl);height:58px;display:flex;align-items:center;justify-content:space-between;}
-.nav-logo{display:flex;align-items:center;gap:9px;text-decoration:none;}
-.nav-mark{width:30px;height:30px;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
-.nav-mark img{width:30px;height:30px;object-fit:contain;display:block;}
-.nav-word{font-family:var(--serif);font-size:17px;font-weight:700;color:var(--ink);letter-spacing:-0.01em;}
+.nav-logo{display:flex;align-items:center;text-decoration:none;}
+.nav-logo img{height:22px;width:auto;display:block;}
 .nav-links{display:flex;gap:32px;list-style:none;}
 .nav-links a{font-family:var(--body);font-size:13px;color:var(--mid);text-decoration:none;font-weight:400;transition:color var(--dur-short);padding:14px 0;display:inline-flex;align-items:center;}
 .nav-links a:hover{color:var(--ink);}
@@ -105,7 +104,7 @@ body{background:var(--bg);color:var(--ink);font-family:var(--body);-webkit-font-
 .nav-cta:hover{background:var(--terra2);}
 
 /* HERO — navy background like spec, warm card on right */
-.hero{background:var(--navy);padding:var(--sp-3xl) var(--sp-2xl) 56px;}
+.hero{background:var(--navy);padding:var(--sp-3xl) var(--sp-2xl) 56px;position:relative;overflow:hidden;}
 .hero-inner{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:var(--sp-3xl);align-items:center;}
 
 /* Hero left */
@@ -213,24 +212,52 @@ body{background:var(--bg);color:var(--ink);font-family:var(--body);-webkit-font-
 .fcta-label{font-family:var(--mono);font-size:10px;font-weight:500;letter-spacing:0.12em;text-transform:uppercase;color:rgba(62,213,152,0.6);margin-bottom:14px;display:flex;align-items:center;justify-content:center;gap:10px;}
 .fcta-label::before,.fcta-label::after{content:'';display:block;width:20px;height:1px;background:rgba(62,213,152,0.3);}
 .fcta-h{font-family:var(--serif);font-size:clamp(30px,4vw,48px);font-weight:700;color:#FFFFFF;letter-spacing:-0.03em;line-height:1.08;margin-bottom:10px;text-wrap:balance;}
-.fcta-h em{font-style:italic;font-weight:300;color:rgba(245,241,232,0.42);}
-.fcta-sub{font-family:var(--body);font-size:14px;color:rgba(255,255,255,0.4);line-height:1.75;margin-bottom:32px;}
+.fcta-h em{font-style:italic;font-weight:300;color:rgba(245,241,232,0.75);}
+.fcta-sub{font-family:var(--body);font-size:14px;color:rgba(255,255,255,0.72);line-height:1.75;margin-bottom:32px;}
 .fcta-form{display:flex;max-width:360px;margin:0 auto 14px;background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.12);border-radius:var(--r-full);padding:4px;}
 .fcta-inp{flex:1;background:transparent;border:none;outline:none;padding:10px 16px;font-size:13px;color:#fff;font-family:var(--body);}
 .fcta-inp::placeholder{color:rgba(255,255,255,0.25);}
 .fcta-btn{padding:10px 22px;background:var(--terra);color:#fff;border:none;cursor:pointer;border-radius:var(--r-full);font-size:13px;font-weight:600;font-family:var(--body);white-space:nowrap;transition:background var(--dur-short);}
 .fcta-btn:hover{background:var(--terra2);}
-.fcta-note{font-family:var(--mono);font-size:10px;color:rgba(255,255,255,0.2);letter-spacing:0.04em;}
+.fcta-note{font-family:var(--mono);font-size:10px;color:rgba(255,255,255,0.45);letter-spacing:0.04em;}
 
 /* FOOTER */
 .footer{background:#060F1C;border-top:1px solid rgba(255,255,255,0.05);padding:20px var(--sp-2xl);display:flex;align-items:center;justify-content:space-between;}
-.f-logo{display:flex;align-items:center;gap:8px;}
-.f-logo img{width:22px;height:22px;object-fit:contain;opacity:0.28;filter:invert(1);}
-.f-logo-word{font-family:var(--serif);font-size:14px;font-weight:700;color:rgba(255,255,255,0.28);}
+.f-logo{display:flex;align-items:center;}
+.f-logo img{height:16px;width:auto;display:block;opacity:0.28;filter:invert(1);}
 .f-links{display:flex;gap:22px;list-style:none;}
 .f-links a{font-family:var(--mono);font-size:10px;color:rgba(255,255,255,0.2);text-decoration:none;letter-spacing:0.04em;padding:16px 0;display:inline-flex;align-items:center;}
 .f-links a:hover{color:rgba(255,255,255,0.5);}
 .f-copy{font-family:var(--mono);font-size:10px;color:rgba(255,255,255,0.14);letter-spacing:0.04em;}
+
+/* HERO WATERMARK */
+.hero-watermark{position:absolute;bottom:-40px;right:-40px;width:420px;height:420px;opacity:0.04;pointer-events:none;user-select:none;}
+.hero-watermark img{width:100%;height:100%;object-fit:contain;filter:invert(1);}
+
+/* HUB SECTION — flow diagram */
+.hub-sec{padding:var(--sp-3xl) var(--sp-2xl);background:var(--bg);border-bottom:1px solid var(--rule);}
+.hub-inner{max-width:1200px;margin:0 auto;}
+.hub-layout{display:grid;grid-template-columns:1fr auto 1fr;gap:var(--sp-xl);align-items:center;margin-top:var(--sp-2xl);}
+.hub-col{display:flex;flex-direction:column;gap:var(--sp-md);}
+.hub-col.right{align-items:flex-start;}
+.hub-col.left{align-items:flex-end;}
+.hub-node{display:flex;align-items:center;gap:var(--sp-md);background:var(--white);border:1px solid var(--rule);border-radius:var(--r-lg);padding:14px var(--sp-md);min-width:200px;position:relative;}
+.hub-col.left .hub-node{flex-direction:row-reverse;justify-content:flex-start;}
+.hub-node-icon{width:36px;height:36px;border-radius:var(--r-md);background:var(--bg2);border:1px solid var(--rule2);display:flex;align-items:center;justify-content:center;flex-shrink:0;color:var(--navy);}
+.hub-node-icon svg{width:16px;height:16px;}
+.hub-node-label{font-family:var(--body);font-size:13px;font-weight:600;color:var(--ink);line-height:1.2;}
+.hub-node-sub{font-family:var(--mono);font-size:9px;color:var(--sub);letter-spacing:0.05em;margin-top:2px;}
+.hub-col.left .hub-node-text{text-align:right;}
+/* connector lines */
+.hub-col.left .hub-node::after{content:'';position:absolute;right:-32px;top:50%;width:32px;height:1px;background:var(--rule2);}
+.hub-col.right .hub-node::before{content:'';position:absolute;left:-32px;top:50%;width:32px;height:1px;background:var(--rule2);}
+/* center hub */
+.hub-center{display:flex;flex-direction:column;align-items:center;justify-content:center;}
+.hub-core{width:160px;height:160px;border-radius:50%;background:var(--navy);border:3px solid var(--terra);display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:var(--sp-md);box-shadow:0 0 0 12px rgba(201,106,61,0.08),0 4px 32px rgba(10,25,47,0.3);}
+.hub-core-icon{width:40px;height:40px;margin-bottom:var(--sp-sm);}
+.hub-core-icon img{width:100%;height:100%;object-fit:contain;filter:invert(1);opacity:0.9;}
+.hub-core-label{font-family:var(--mono);font-size:9px;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;color:rgba(62,213,152,0.8);margin-bottom:4px;}
+.hub-core-title{font-family:var(--body);font-size:13px;font-weight:700;color:#fff;line-height:1.2;}
 
 /* LINKS */
 a{color:var(--link);}
@@ -245,16 +272,13 @@ a:hover{color:var(--link-hover);}
 
 <!-- NAV -->
 <nav class="nav" aria-label="Main navigation">
-  <a href="#" class="nav-logo">
-    <div class="nav-mark">
-      <img src="assets/logo-mark-black.svg" alt="Akuuva mark" width="30" height="30">
-    </div>
-    <span class="nav-word">Akuuva</span>
+  <a href="/" class="nav-logo">
+    <img src="assets/logo-full-black.svg" alt="Akuuva" height="22">
   </a>
   <ul class="nav-links">
-    <li><a href="#">Intelligence</a></li>
-    <li><a href="#">Reports</a></li>
-    <li><a href="#">Pricing</a></li>
+    <li><a href="#how-it-works">Intelligence</a></li>
+    <li><a href="#why-akuuva">Reports</a></li>
+    <li><a href="#get-started">Pricing</a></li>
   </ul>
   <a href="mailto:support@akuuva.com" class="nav-cta">Get your report</a>
 </nav>
@@ -269,8 +293,8 @@ a:hover{color:var(--link-hover);}
       <div class="hero-rule"></div>
       <p class="hero-p">Replace weeks of manual legal searches with instant, advocate-verified reports. <strong>10× faster. 60% more cost-effective.</strong> Trusted by BFSI and PE funds.</p>
       <div class="hero-btns">
-        <a href="#" class="btn-primary">Analyze your first parcel — free</a>
-        <a href="#" class="btn-secondary">View sample report</a>
+        <a href="#get-started" class="btn-primary">Analyze your first parcel — free</a>
+        <a href="mailto:support@akuuva.com?subject=Sample%20Report%20Request" class="btn-secondary">View sample report</a>
       </div>
       <div class="hero-stats">
         <div class="hstat"><span class="hstat-n">603</span><span class="hstat-l">Sample ALR score</span></div>
@@ -278,6 +302,11 @@ a:hover{color:var(--link-hover);}
         <div class="hstat"><span class="hstat-n">40+</span><span class="hstat-l">Risk signals</span></div>
         <div class="hstat"><span class="hstat-n">48hr</span><span class="hstat-l">Advocate SLA</span></div>
       </div>
+    </div>
+
+    <!-- WATERMARK -->
+    <div class="hero-watermark" aria-hidden="true">
+      <img src="assets/logo-mark-black.svg" alt="">
     </div>
 
     <!-- SCORE CARD -->
@@ -334,7 +363,7 @@ a:hover{color:var(--link-hover);}
 </div>
 
 <!-- BENTO -->
-<div class="bento-sec">
+<div id="how-it-works" class="bento-sec">
   <div class="bento-inner">
     <div class="sec-label">How it works</div>
     <h2 class="sec-h2">Three pillars. <em>One trusted report.</em></h2>
@@ -364,8 +393,110 @@ a:hover{color:var(--link-hover);}
   </div>
 </div>
 
+<!-- HUB SECTION -->
+<div class="hub-sec">
+  <div class="hub-inner">
+    <div class="sec-label">The Process</div>
+    <h2 class="sec-h2">From raw land record <em>to rated report.</em></h2>
+    <div class="hub-layout">
+
+      <!-- Left: Data Sources -->
+      <div class="hub-col left">
+        <div class="hub-node">
+          <div class="hub-node-icon">
+            <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4"><rect x="2" y="2" width="12" height="12" rx="2"/><path d="M5 8h6M5 5.5h6M5 10.5h4"/></svg>
+          </div>
+          <div>
+            <div class="hub-node-label">State Revenue Portals</div>
+            <div class="hub-node-sub">Dharitri · IGRS · Bhoomi</div>
+          </div>
+        </div>
+        <div class="hub-node">
+          <div class="hub-node-icon">
+            <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="8" cy="8" r="6"/><path d="M8 5v3l2 2"/></svg>
+          </div>
+          <div>
+            <div class="hub-node-label">Mutation Registers</div>
+            <div class="hub-node-sub">30-year chain of title</div>
+          </div>
+        </div>
+        <div class="hub-node">
+          <div class="hub-node-icon">
+            <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M3 4h10M3 8h7M3 12h5"/><path d="M12 10l2 2-2 2"/></svg>
+          </div>
+          <div>
+            <div class="hub-node-label">Encumbrance Certificates</div>
+            <div class="hub-node-sub">Sub-registrar filings</div>
+          </div>
+        </div>
+        <div class="hub-node">
+          <div class="hub-node-icon">
+            <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M8 2L2 6v8h12V6L8 2z"/><path d="M6 14V9h4v5"/></svg>
+          </div>
+          <div>
+            <div class="hub-node-label">Court Filings</div>
+            <div class="hub-node-sub">eCourts API · District courts</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Center: Akuuva Core -->
+      <div class="hub-center">
+        <div class="hub-core">
+          <div class="hub-core-icon">
+            <img src="assets/logo-mark-black.svg" alt="Akuuva">
+          </div>
+          <div class="hub-core-label">ALR Engine</div>
+          <div class="hub-core-title">Title Intelligence, Quantified</div>
+        </div>
+      </div>
+
+      <!-- Right: Outputs -->
+      <div class="hub-col right">
+        <div class="hub-node">
+          <div class="hub-node-icon" style="background:rgba(26,122,94,0.08);border-color:rgba(26,122,94,0.2);color:var(--emerald);">
+            <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="8" cy="8" r="6"/><path d="M5 8l2 2 4-4"/></svg>
+          </div>
+          <div>
+            <div class="hub-node-label">ALR Score (0–850)</div>
+            <div class="hub-node-sub">Quantified risk rating</div>
+          </div>
+        </div>
+        <div class="hub-node">
+          <div class="hub-node-icon" style="background:rgba(26,122,94,0.08);border-color:rgba(26,122,94,0.2);color:var(--emerald);">
+            <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M4 2h8l2 3v9H2V5l2-3z"/><path d="M6 7h4M6 10h3"/></svg>
+          </div>
+          <div>
+            <div class="hub-node-label">Full Title Report</div>
+            <div class="hub-node-sub">PDF · delivered in 2–4 hrs</div>
+          </div>
+        </div>
+        <div class="hub-node">
+          <div class="hub-node-icon" style="background:rgba(26,122,94,0.08);border-color:rgba(26,122,94,0.2);color:var(--emerald);">
+            <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M8 2v4M8 10v4M2 8h4M10 8h4"/><circle cx="8" cy="8" r="2"/></svg>
+          </div>
+          <div>
+            <div class="hub-node-label">Advocate Co-Signature</div>
+            <div class="hub-node-sub">Bar Council verified · 48hr SLA</div>
+          </div>
+        </div>
+        <div class="hub-node">
+          <div class="hub-node-icon" style="background:rgba(26,122,94,0.08);border-color:rgba(26,122,94,0.2);color:var(--emerald);">
+            <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M3 8a5 5 0 1010 0A5 5 0 003 8z"/><path d="M8 5v3l1.5 1.5"/></svg>
+          </div>
+          <div>
+            <div class="hub-node-label">Portfolio Watch</div>
+            <div class="hub-node-sub">Live alerts · 15-min latency</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
 <!-- DELTA TABLE -->
-<div class="delta-sec">
+<div id="why-akuuva" class="delta-sec">
   <div class="delta-inner">
     <div class="sec-label">Why Akuuva</div>
     <h2 class="sec-h2">The order-of-magnitude <em>difference.</em></h2>
@@ -401,7 +532,7 @@ a:hover{color:var(--link-hover);}
 </div>
 
 <!-- FINAL CTA -->
-<div class="final-cta">
+<div id="get-started" class="final-cta">
   <div class="fcta-inner">
     <div class="fcta-label">Get started</div>
     <h2 class="fcta-h">Know the land<br><em>before you move.</em></h2>
@@ -417,8 +548,7 @@ a:hover{color:var(--link-hover);}
 <!-- FOOTER -->
 <div class="footer">
   <div class="f-logo">
-    <img src="assets/logo-mark-black.svg" alt="Akuuva">
-    <span class="f-logo-word">Akuuva</span>
+    <img src="assets/logo-full-black.svg" alt="Akuuva">
   </div>
   <ul class="f-links">
     <li><a href="mailto:support@akuuva.com">support@akuuva.com</a></li>
