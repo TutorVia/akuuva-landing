@@ -26,28 +26,29 @@ export default function Nav() {
           justifyContent: 'space-between',
         }}
       >
-        {/* Logo: mark + wordmark side by side.
-            Both PNGs are 500×500 with white backgrounds and centered content.
-            mixBlendMode:multiply makes white transparent on the parchment nav.
-            The wordmark text sits in the middle ~30% of the square, so we
-            render it tall and crop the top/bottom whitespace via overflow:hidden. */}
-        <a href="/" style={{ display: 'flex', alignItems: 'center', gap: 2, textDecoration: 'none', lineHeight: 0 }}>
-          {/* Mark: triangle — content fills ~60% of canvas height */}
-          <div style={{ height: 30, overflow: 'hidden', display: 'flex', alignItems: 'center' }}>
+        {/* Logo lockup: mark + wordmark.
+            Both PNGs are 500×500 squares with white bg + centered content.
+            - mark: content fills ~55% of canvas; render at 64px, clip to 36px
+            - wordmark: AKUUVA text lives in center ~28% of 500px canvas
+              so at height:100px the text itself is ~28px tall — just right for nav.
+            mixBlendMode:multiply drops the white canvas on parchment bg. */}
+        <a href="/" style={{ display: 'flex', alignItems: 'center', gap: 0, textDecoration: 'none', lineHeight: 0 }}>
+          <div style={{ height: 36, overflow: 'hidden', display: 'flex', alignItems: 'center' }}>
             <img
               src="/assets/logo-mark-black.png"
               alt=""
               aria-hidden="true"
-              style={{ display: 'block', height: 52, width: 'auto', marginTop: -10, mixBlendMode: 'multiply' }}
+              style={{ display: 'block', height: 64, width: 'auto', mixBlendMode: 'multiply' }}
             />
           </div>
-          {/* Wordmark: AKUUVA text sits in the middle ~30% of canvas height.
-              Render at 66px tall, crop to 20px showing the middle slice. */}
-          <div style={{ height: 20, overflow: 'hidden', display: 'flex', alignItems: 'center' }}>
+          {/* wordmark: 500px tall canvas, text at ~35%–65% → 30% band
+              At rendered height 100px, the 30% text band = 30px visible.
+              Clip window = 28px centered. */}
+          <div style={{ height: 28, overflow: 'hidden', display: 'flex', alignItems: 'center' }}>
             <img
               src="/assets/logo-name.png"
               alt="Akuuva"
-              style={{ display: 'block', height: 66, width: 'auto', mixBlendMode: 'multiply' }}
+              style={{ display: 'block', height: 96, width: 'auto', mixBlendMode: 'multiply' }}
             />
           </div>
         </a>
