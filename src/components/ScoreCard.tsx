@@ -6,7 +6,7 @@ export default function ScoreCard() {
   const ref = useRef<HTMLDivElement>(null)
   const shouldReduce = useReducedMotion()
   const isInView = useInView(ref, { once: true, margin: '-60px' })
-  const score = useCountUp(603, 500, isInView)
+  const score = useCountUp(603, 2200, isInView)
 
   return (
     <motion.div
@@ -92,7 +92,7 @@ export default function ScoreCard() {
             <motion.div
               initial={{ width: '0%' }}
               animate={{ width: isInView ? '70.9%' : '0%' }}
-              transition={{ delay: 0.3, duration: 0.6, ease: [0.0, 0.0, 0.2, 1] }}
+              transition={{ delay: 0.4, duration: 2.0, ease: [0.16, 1, 0.3, 1] }}
               style={{
                 height: '100%',
                 borderRadius: 'var(--r-full)',

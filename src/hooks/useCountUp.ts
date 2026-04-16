@@ -16,7 +16,10 @@ export function useCountUp(target: number, duration: number, enabled: boolean): 
     startRef.current = null
     setValue(0)
 
-    const easeOut = (t: number) => 1 - Math.pow(1 - t, 3)
+    // Slow start → accelerate → ease out landing. t^2 ramp then decelerate.
+    const easeOut = (t: number) => t < 0.5
+      ? 2 * t * t                          // accelerate first half
+      : 1 - Math.pow(-2 * t + 2, 3) / 2   // cubic ease-out second half
 
     const tick = (timestamp: number) => {
       if (startRef.current === null) startRef.current = timestamp
