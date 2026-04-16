@@ -1,5 +1,8 @@
 {
   "version": 2,
+  "github": {
+    "org": "TutorVia",
+    "repo": "akuuva-landing"
+  },
   "rewrites": [{ "source": "/(.*)", "destination": "/index.html" }]
 }
-
