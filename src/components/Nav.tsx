@@ -26,31 +26,37 @@ export default function Nav() {
           justifyContent: 'space-between',
         }}
       >
-        {/* Logo lockup: mark + wordmark.
-            Both PNGs are 500×500 squares with white bg + centered content.
-            - mark: content fills ~55% of canvas; render at 64px, clip to 36px
-            - wordmark: AKUUVA text lives in center ~28% of 500px canvas
-              so at height:100px the text itself is ~28px tall — just right for nav.
-            mixBlendMode:multiply drops the white canvas on parchment bg. */}
-        <a href="/" style={{ display: 'flex', alignItems: 'center', gap: 0, textDecoration: 'none', lineHeight: 0 }}>
-          <div style={{ height: 36, overflow: 'hidden', display: 'flex', alignItems: 'center' }}>
+        <a href="/" style={{ display: 'flex', alignItems: 'center', gap: 9, textDecoration: 'none' }}>
+          {/* Mark: 2000×2000 SVG, visual content fills the center ~40%.
+              Render oversized and crop to show only the mark. */}
+          <div style={{ width: 34, height: 34, overflow: 'hidden', flexShrink: 0, position: 'relative' }}>
             <img
-              src="/assets/logo-mark-black.png"
+              src="/assets/logo-mark-black.svg"
               alt=""
               aria-hidden="true"
-              style={{ display: 'block', height: 64, width: 'auto', mixBlendMode: 'multiply' }}
+              style={{
+                display: 'block',
+                width: 85,
+                height: 85,
+                position: 'absolute',
+                top: '50%',
+                left: '50%',
+                transform: 'translate(-50%, -50%)',
+                mixBlendMode: 'multiply',
+              }}
             />
           </div>
-          {/* wordmark: 500px tall canvas, text at ~35%–65% → 30% band
-              At rendered height 100px, the 30% text band = 30px visible.
-              Clip window = 28px centered. */}
-          <div style={{ height: 28, overflow: 'hidden', display: 'flex', alignItems: 'center' }}>
-            <img
-              src="/assets/logo-name.png"
-              alt="Akuuva"
-              style={{ display: 'block', height: 96, width: 'auto', mixBlendMode: 'multiply' }}
-            />
-          </div>
+          {/* Brand name as real text — crisp, scalable, no cropping needed */}
+          <span style={{
+            fontFamily: 'var(--body)',
+            fontSize: 20,
+            fontWeight: 800,
+            color: 'var(--ink)',
+            letterSpacing: '-0.5px',
+            lineHeight: 1,
+          }}>
+            Akuuva
+          </span>
         </a>
 
         {/* Desktop nav links */}
