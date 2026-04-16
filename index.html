@@ -50,9 +50,10 @@ body{background:var(--bg);color:var(--ink);font-family:var(--body);-webkit-font-
 .nav-mark{width:28px;height:28px;background:var(--navy);border-radius:7px;display:flex;align-items:center;justify-content:center;}
 .nav-word{font-family:var(--serif);font-size:17px;font-weight:700;color:var(--ink);letter-spacing:-0.01em;}
 .nav-links{display:flex;gap:32px;list-style:none;}
-.nav-links a{font-family:var(--sans);font-size:13px;color:var(--mid);text-decoration:none;font-weight:400;transition:color .2s;}
+.nav-links a{font-family:var(--sans);font-size:13px;color:var(--mid);text-decoration:none;font-weight:400;transition:color .2s;padding:14px 0;display:inline-flex;align-items:center;}
 .nav-links a:hover{color:var(--ink);}
-.nav-cta{font-family:var(--sans);font-size:13px;font-weight:600;padding:8px 20px;border-radius:999px;background:var(--terra);color:#fff;text-decoration:none;}
+.nav-cta{font-family:var(--sans);font-size:13px;font-weight:600;padding:11px 20px;border-radius:999px;background:var(--terra);color:#fff;text-decoration:none;transition:background .2s;}
+.nav-cta:hover{background:var(--terra2);}
 
 /* HERO — navy background like spec, warm card on right */
 .hero{background:var(--navy);padding:64px 52px 56px;}
@@ -176,7 +177,7 @@ body{background:var(--bg);color:var(--ink);font-family:var(--body);-webkit-font-
 .footer{background:#060F1C;border-top:1px solid rgba(255,255,255,0.05);padding:20px 52px;display:flex;align-items:center;justify-content:space-between;}
 .f-logo{font-family:var(--serif);font-size:15px;font-weight:700;color:rgba(255,255,255,0.28);}
 .f-links{display:flex;gap:22px;list-style:none;}
-.f-links a{font-family:var(--mono);font-size:10px;color:rgba(255,255,255,0.2);text-decoration:none;letter-spacing:0.04em;}
+.f-links a{font-family:var(--mono);font-size:10px;color:rgba(255,255,255,0.2);text-decoration:none;letter-spacing:0.04em;padding:16px 0;display:inline-flex;align-items:center;}
 .f-links a:hover{color:rgba(255,255,255,0.5);}
 .f-copy{font-family:var(--mono);font-size:10px;color:rgba(255,255,255,0.14);letter-spacing:0.04em;}
 </style>
