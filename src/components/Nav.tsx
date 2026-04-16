@@ -63,7 +63,6 @@ export default function Nav() {
           className="nav-desktop-links"
         >
           <li><a href="#how-it-works" className="nav-link">Intelligence</a></li>
-          <li><a href="#coverage" className="nav-link">Coverage</a></li>
           <li><a href="#why-akuuva" className="nav-link">Reports</a></li>
           <li><a href="#get-started" className="nav-link">Pricing</a></li>
         </ul>
@@ -93,7 +92,6 @@ export default function Nav() {
       {menuOpen && (
         <div className="nav-mobile-menu">
           <a href="#how-it-works" className="nav-mobile-link" onClick={() => setMenuOpen(false)}>Intelligence</a>
-          <a href="#coverage" className="nav-mobile-link" onClick={() => setMenuOpen(false)}>Coverage</a>
           <a href="#why-akuuva" className="nav-mobile-link" onClick={() => setMenuOpen(false)}>Reports</a>
           <a href="#get-started" className="nav-mobile-link" onClick={() => setMenuOpen(false)}>Pricing</a>
           <a href="mailto:support@akuuva.com" className="nav-cta-btn nav-mobile-cta" onClick={() => setMenuOpen(false)}>Get your report</a>

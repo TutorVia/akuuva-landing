@@ -2,7 +2,6 @@ import Nav from './components/Nav'
 import Hero from './components/Hero'
 import BentoSection from './components/BentoSection'
 import HubSection from './components/HubSection'
-import IndiaMapSection from './components/IndiaMapSection'
 import DeltaTable from './components/DeltaTable'
 import QuoteSection from './components/QuoteSection'
 import CtaSection from './components/CtaSection'
@@ -16,7 +15,6 @@ export default function App() {
         <Hero />
         <BentoSection />
         <HubSection />
-        <IndiaMapSection />
         <DeltaTable />
         <QuoteSection />
         <CtaSection />
